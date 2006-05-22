@@ -1,5 +1,5 @@
 #Fat Jar Configuration File
-#Mon May 15 23:06:58 CEST 2006
+#Mon May 22 22:38:02 CEST 2006
 onejar.license.required=true
 manifest.classpath=
 manifest.removesigners=true
@@ -10,5 +10,5 @@ manifest.mainclass=com.quui.chat.ui.irc.RunBots
 manifest.file=<createnew>
 jarname.isextern=false
 onejar.expand=
-excludes=
+excludes=<jar|junit-4.0.jar>
 includes=
