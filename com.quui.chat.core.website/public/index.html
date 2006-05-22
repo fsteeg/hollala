@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/­xhtml11.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type"
+	content="application/xhtml+xml; charset=UTF-8" />
+<link rel="stylesheet" href="./style.css" type="text/css" />
+<title>Hollaka Hollala: A Chatbot Engine and IRC Bot</title>
+</head>
+<body class="top">
+<h1 class="caption">Hollaka Hollala: A Chatbot Engine and IRC Bot</h1>
+
+<hr />
+
+<div class="navigation">
+<form action="http://www.google.com/search">
+<div>Search <input size="15" name="as_q" /> <input type="hidden"
+	name="hl" value="en" /> <input type="hidden" name="ie" value="UTF-8" />
+<input type="hidden" name="btnG" value="Google+Search" /> <input
+	type="hidden" name="as_qdr" value="all" /> <input type="hidden"
+	name="as_occt" value="any" /> <input type="hidden" name="as_dt"
+	value="i" /> <input type="hidden" name="as_sitesearch"
+	value="hollala.sourceforge.net" /></div>
+</form>
+<br />
+<a
+	href="https://svn.sourceforge.net/svnroot/hollala/com.quui.chat.core/">Browse
+the Subversion <br />
+repository</a> <br />
+<br />
+<a href="http://sourceforge.net/projects/hollala">Sourceforge
+Project Site<br />
+(download and more)</a> <br />
+<br />
+<a href="http://www.quui.com/">Projects, papers and stuff<br />
+by Fabian Steeg</a> <br />
+<br />
+<a href="http://sourceforge.net/projects/hollala"><img class="image2"
+	alt="SourceForge.net Logo"
+	src="http://sourceforge.net/sflogo.php?group_id=35413&amp;type=4" /></a></div>
+
+<p><img src="hollala.jpg" alt="The Hollala Logo" class="image1" />
+<h3>What's this about? And how does it work?</h3>
+<p>Hollaka Hollala is a chatbot engine and IRC bot written in <b>Java</b>.
+The chatbot engine uses a knowledge base organized in an <b>XML</b> file
+and WordNet for dictionary lookup. The IRC Bot has some WordNet- and
+some Web-based functionality and is hot-extensible through <b>Ruby</b>
+programs.</p>
+
+<p>When you talk about something Hollala thinks he knows about he'll
+try to talk to you on that topic. Also he will try to learn what you say
+about that topic and related topics. If you talk about something thats
+new to him he'll try to learn it. You can talk to Hollala on IRC in
+channel <i>#hollala</i> on server <i>irc.freenode.net</i>. To chat with
+Hollala, mention his name in your message. Besides the chatting
+functionality there are a few other commands, to see what's available
+enter "!help". Have fun!</p>
+<h3>Some more detail, please...</h3>
+<p>Hollaka Hollala is a learning chatbot engine and IRC bot. The
+chatbot engine uses XML (using JDOM) to store the knowledge base and
+WordNet (using JWNL) as an external resource. The knowledge base is
+organized in topics, which consist of keywords and possible answers.
+These are organized in a simple XML format. The program tries to find
+the most suitable topic for a user input (e.g. using semantic relations
+from WordNet and word counting). On the selected topic the answer is
+then chosen randomly, where answers with higher frequencies (meaning
+things often said by users) occur more often. This is a place for
+possible extensions (e.g. speech act theory, pragmatics in general, any
+comparison between possible anwers and input). When no suitable topic is
+found new topics are made up from the user input, using information from
+WordNet and the user input for initial content. The chatbot can
+therefore start with an empty knowledge base and learn new topics and
+answers for these topics from user conversation.</p>
+<p>Besides the IRC bot there is a Console-based and a Web-based
+(both as a plain Java Servlet and as a JSP) interface to the chatbot
+engine. The IRC Bot, besides providing an interface for the chatbot
+engine, features some WordNet- (like a word guessing game and word
+definition lookups) and some Web-based functionality (like translation
+services) and is hot-extensible (while the bot is running) through Ruby
+programs, which have access to any Java libraries (by using JRuby).</p>
+
+
+<hr />
+<p class="smallprint"><a href="http://jigsaw.w3.org/css-validator/">
+<img class="image2" src="http://jigsaw.w3.org/css-validator/images/vcss"
+	alt="Valid CSS!" /></a> <a
+	href="http://validator.w3.org/check?uri=referer"><img class="image2"
+	src="http://www.w3.org/Icons/valid-xhtml11" alt="Valid XHTML 1.1" /></a><br />
+<br />
+<i>This site was created on 2006-05-21 by <a
+	href="mailto:steeg@netcologne.de"> Fabian Steeg </a> </i></p>
+</body>
+</html>
