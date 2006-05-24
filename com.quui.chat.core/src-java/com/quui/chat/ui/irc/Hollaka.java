@@ -13,6 +13,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Properties;
 
+import com.quui.chat.GlobalProperties;
 import com.quui.chat.commands.RubyCaller;
 import com.quui.chat.wordgame.WordGame;
 import com.quui.chat.wordgame.WordGameScores;
@@ -101,7 +102,8 @@ public class Hollaka extends SuperBot {
                 + " on channel: " + channel);
         System.out.println("Word is running: " + wordGameRunning
                 + ", Word is done: " + sawGameDone + ", WordWord: " + wordWord);
-        if (message.equals("!word")
+        if (message.equals(GlobalProperties.getInstance().getCommandPrefix()
+                + "word")
         // || message.equals(Commands.prefix + "hardword")
         ) {
             if (!this.sawGameDone)
@@ -124,17 +126,22 @@ public class Hollaka extends SuperBot {
 
             return;
         }
-        if (message.startsWith("!")) {
+        if (message.startsWith(GlobalProperties.getInstance()
+                .getCommandPrefix())) {
             String process = "";
-            if (message.equals("!more"))
+            if (message.equals(GlobalProperties.getInstance()
+                    .getCommandPrefix()
+                    + "more"))
                 process = restMessage;
             String scriptsDirectory = "src-ruby";
             // String process = Commands.process(message);
             if (process.equals("") && message.contains(" "))
-                process = new RubyCaller(scriptsDirectory).exec(message.split(" ")[0],
-                        message.substring(message.indexOf(' ')));
+                process = new RubyCaller(scriptsDirectory).exec(message
+                        .split(" ")[0].substring(1), message.substring(message
+                        .indexOf(' ')));
             else if (process.equals(""))
-                process = new RubyCaller(scriptsDirectory).exec(message, "");
+                process = new RubyCaller(scriptsDirectory).exec(message
+                        .substring(1), "");
             System.out.println("Command result: " + process);
             int i = 0;
             String[] split = process.split("#");

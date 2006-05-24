@@ -17,6 +17,8 @@ import java.util.Map;
 import org.jruby.IRuby;
 import org.jruby.RubyHash;
 
+import com.quui.chat.GlobalProperties;
+
 /**
  * @author Fabian Steeg (fsteeg)
  */
@@ -78,7 +80,7 @@ public class RubyCaller {
      *         an error message)
      */
     public String exec(String command, String param) {
-        if (command.equals("!help"))
+        if (command.equals("help"))
             return returnHelp();
 
         String method = map.get(command);
@@ -105,10 +107,12 @@ public class RubyCaller {
         String r = "Available commands: ";
         // ruby-commands
         for (String s : map.keySet()) {
-            r = r + s + " ";
+            r = r + GlobalProperties.getInstance().getCommandPrefix() + s + " ";
         }
         // non-ruby-commands
-        r = r.trim() + " !word !more";
+        r = r.trim() + " " + GlobalProperties.getInstance().getCommandPrefix()
+                + "word " + GlobalProperties.getInstance().getCommandPrefix()
+                + "more";
         return r;
     }
 

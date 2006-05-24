@@ -1,5 +1,5 @@
 def init
-  {"!cost" => "doCost", "!kbit" => "doKbit", "!kb" => "doKbit"}
+  {"cost" => "doCost", "kbit" => "doKbit", "kb" => "doKbit"}
 end
 def doCost(incoming)
   split = incoming.split(" ")

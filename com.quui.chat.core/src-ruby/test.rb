@@ -1,5 +1,5 @@
  def init
-{"!test" => "doTest"}
+{"test" => "doTest"}
 end
 def doTest(incoming)
 incoming.capitalize!
