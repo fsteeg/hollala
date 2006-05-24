@@ -10,8 +10,8 @@
       <chat-answer frequency="1">sweet Fanny Adams</chat-answer>
       <chat-answer frequency="1">yo</chat-answer>
       <chat-answer frequency="1">he looks nothing like his father</chat-answer>
-      <chat-answer frequency="1">in no way</chat-answer>
       <chat-answer frequency="1">to no degree</chat-answer>
+      <chat-answer frequency="1">in no way</chat-answer>
       <chat-answer frequency="1">fuck all</chat-answer>
       <chat-answer frequency="1">bugger all</chat-answer>
       <chat-answer frequency="1">Fanny Adams</chat-answer>
@@ -28,6 +28,7 @@
       <chat-answer frequency="1">an expression of greeting</chat-answer>
       <chat-answer frequency="1">hello there</chat-answer>
       <chat-answer frequency="1">every morning they exchanged polite hellos</chat-answer>
+      <chat-answer frequency="1">hi</chat-answer>
     </chat-answers>
   </chat-topic>
 </chat-map>
