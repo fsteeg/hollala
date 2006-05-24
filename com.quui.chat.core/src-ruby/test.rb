@@ -1,6 +1,6 @@
  def init
-<Trinil>   {"!test" => "doTest"}
-<Trinil> end
-<Trinil> def doTest(incoming)
-<Trinil>   incoming.capitalize!
-<Trinil> end
+{"!test" => "doTest"}
+end
+def doTest(incoming)
+incoming.capitalize!
+end
