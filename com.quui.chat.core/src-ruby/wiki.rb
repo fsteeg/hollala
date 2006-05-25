@@ -3,23 +3,19 @@ require 'cgi'
 include_class "com.quui.chat.commands.RegExLookup"
 include_class "com.quui.chat.GlobalProperties"
 def init
-  {"wiki"=>"doWikiEn", "wikid" => "doWikiDe"}
-end
-def doWikiDe(incoming)
-  doWiki("de",incoming)
+  {"wiki"=>"doWiki"}
 end
 
-def doWikiEn(incoming)
-  doWiki("en",incoming)
-end
-
-def doWiki(lang, incoming)
-  incoming = incoming.split(" ").collect{|word|word.capitalize!}.join(" ")
-  if (incoming.strip=='')
-    return "Usage: #{GlobalProperties::getInstance.getCommandPrefix}wiki <terms>";
+def doWiki(incoming)
+  in_toks = incoming.split(" ")
+  incoming = in_toks[1..in_toks.length-1].collect{|word|word.capitalize!}.join(" ")
+ # puts "incoming: " << incoming
+  if (in_toks.length < 2)
+    return "Usage: '#{GlobalProperties::getInstance.getCommandPrefix}wiki <lang> <terms>'";
   else
     text = incoming.split(" ").join("_")
-    adress = "http://#{lang}.wikipedia.org/wiki/#{text}"
+    adress = "http://#{in_toks[0]}.wikipedia.org/wiki/#{text}"
+   # puts "opening: " + adress
     res = RegExLookup::open(adress,"UTF-8")
     regex = /<p>(.+?)(?=<\/p>)/m
     all=''
