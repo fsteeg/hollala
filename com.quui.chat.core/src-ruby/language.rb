@@ -1,9 +1,11 @@
 require 'java'
 include_class "com.quui.chat.commands.Leo"
+include_class "com.quui.chat.commands.RegExLookup"
 include_class "com.quui.chat.commands.Babelfish"
 include_class "com.quui.chat.mind.wn.WNLookup"
 def init
-  {"leo" => "doLeo", "babel" => "doBabel", "translate" => "doBabel", "stem" => "doStem", "define" => "doDefine"}
+  {"leo" => "doLeo", "babel" => "doBabel", "translate" => "doBabel", 
+  "stem" => "doStem", "define" => "doDefine"}
 end
 def doLeo(incoming)
   if (incoming.length == 0)

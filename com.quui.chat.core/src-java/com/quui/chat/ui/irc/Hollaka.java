@@ -42,6 +42,11 @@ public class Hollaka extends SuperBot {
 
     public boolean sawGameDone = true;
 
+    RubyCaller rubyCaller;
+
+    // TODO externalize
+    String scriptsDirectory = "src-ruby";
+
     /**
      * Instantiate a new bot
      */
@@ -133,7 +138,7 @@ public class Hollaka extends SuperBot {
                     .getCommandPrefix()
                     + "more"))
                 process = restMessage;
-            String scriptsDirectory = "src-ruby";
+
             // String process = Commands.process(message);
             if (process.equals("") && message.contains(" "))
                 process = new RubyCaller(scriptsDirectory).exec(message

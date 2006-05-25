@@ -34,7 +34,7 @@ public class RegExLookup {
      *            The encoding the website uses
      * @return The content of the website
      */
-    static String open(String adress, String encoding) {
+    public static String open(String adress, String encoding) {
         StringBuilder builder;
         try {
             URL url = new URL(adress);
@@ -61,7 +61,7 @@ public class RegExLookup {
      *            The regex to match agains the content
      * @return The Collection of matching sections of the content
      */
-    static Collection<String> match(String siteContent, String REGEX) {
+    public static Collection<String> match(String siteContent, String REGEX) {
         Collection<String> results = new Vector<String>();
         Pattern pattern = Pattern.compile(REGEX);
         Matcher matcher = pattern.matcher(siteContent.toString());

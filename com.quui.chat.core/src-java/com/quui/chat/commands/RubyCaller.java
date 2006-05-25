@@ -14,6 +14,7 @@ import java.io.FilenameFilter;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.bsf.BSFManager;
 import org.jruby.IRuby;
 import org.jruby.RubyHash;
 
@@ -36,6 +37,8 @@ public class RubyCaller {
     public RubyCaller(String directory) {
         this.directory = directory;
         map = new HashMap<String, String>();
+        // runtime.setCurrentDirectory("/opt/local/lib/ruby/1.8/");
+        // runtime.setVerbose(runtime.newBoolean(true));
         loadFiles();
     }
 
@@ -45,6 +48,9 @@ public class RubyCaller {
      */
     private void loadFiles() {
         runtime = org.jruby.Ruby.getDefaultInstance();
+        //TODO externalize
+        runtime
+                .evalScript("$: << '"+GlobalProperties.getInstance().getRubyHome()+"'");
         try {
 
             String[] files = new File(directory).list(new FilenameFilter() {
@@ -56,7 +62,9 @@ public class RubyCaller {
             });
             for (String string : files) {
                 File f = new File(directory + File.separator + string);
+
                 runtime.loadFile(f, false);
+                // runtime.loadFile(f, false);
                 RubyHash rubyObject = (RubyHash) runtime.evalScript("init");
                 for (Object s : rubyObject.keys().getList()) {
                     System.out.println(s);

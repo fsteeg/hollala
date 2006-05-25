@@ -26,6 +26,8 @@ public class GlobalProperties {
 
     private String commandPrefix;
 
+    private String rubyHome;
+
     /**
      * The default constructor is private because this is an implementation of
      * the Singleton Pattern.
@@ -40,6 +42,7 @@ public class GlobalProperties {
             logLocation = p.getProperty("log");
             configLocation = p.getProperty("config");
             commandPrefix = p.getProperty("command");
+            rubyHome = p.getProperty("ruby");
             new Talk("config", "topics-test.xml", wnLocation, logLocation);
         } catch (Exception e) {
             e.printStackTrace();
@@ -72,5 +75,9 @@ public class GlobalProperties {
 
     public String getCommandPrefix() {
         return commandPrefix;
+    }
+
+    public String getRubyHome() {
+        return rubyHome;
     }
 }
