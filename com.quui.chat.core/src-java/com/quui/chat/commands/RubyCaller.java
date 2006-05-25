@@ -14,7 +14,6 @@ import java.io.FilenameFilter;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.bsf.BSFManager;
 import org.jruby.IRuby;
 import org.jruby.RubyHash;
 
