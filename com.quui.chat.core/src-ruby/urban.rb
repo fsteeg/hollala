@@ -1,17 +1,17 @@
 require 'java'
 require 'cgi'
-include_class "com.quui.chat.commands.RegExLookup"
+include_class "com.quui.chat.commands.WebsiteLookup"
 include_class "com.quui.chat.GlobalProperties"
 def init
   {"urban"=>"doUrban"}
 end
 def doUrban(incoming)
   if (incoming.strip=='')
-    return "Usage: #{GlobalProperties::getInstance.getCommandPrefix}urban <terms>";
+    return "Usage: urban <terms>";
   else
     text = incoming.split(" ").join("+")
     adress = "http://www.urbandictionary.com/define.php?term=#{text}"
-    res = RegExLookup::open(adress,"UTF-8")
+    res = WebsiteLookup.new(adress,"UTF-8").text
     regex = /<p>(.+?)(?=<\/p>)/m
     all=''
     res.scan regex do |url|
