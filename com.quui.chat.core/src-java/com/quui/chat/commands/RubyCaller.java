@@ -47,9 +47,9 @@ public class RubyCaller {
      */
     private void loadFiles() {
         runtime = org.jruby.Ruby.getDefaultInstance();
-        //TODO externalize
-        runtime
-                .evalScript("$: << '"+GlobalProperties.getInstance().getRubyHome()+"'");
+        // TODO externalize
+        runtime.evalScript("$: << '"
+                + GlobalProperties.getInstance().getRubyHome() + "'");
         try {
 
             String[] files = new File(directory).list(new FilenameFilter() {
@@ -111,15 +111,13 @@ public class RubyCaller {
      *         Built-in commands are added.
      */
     private String returnHelp() {
-        String r = "Available commands: ";
+        String r = "Use my name plus: ";
         // ruby-commands
         for (String s : map.keySet()) {
-            r = r + GlobalProperties.getInstance().getCommandPrefix() + s + " ";
+            r = r + s + ", ";
         }
         // non-ruby-commands
-        r = r.trim() + " " + GlobalProperties.getInstance().getCommandPrefix()
-                + "word " + GlobalProperties.getInstance().getCommandPrefix()
-                + "more";
+        r = r.trim() + " " + "word, " + "more";
         return r;
     }
 

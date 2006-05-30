@@ -13,6 +13,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Properties;
 
+import sun.reflect.generics.tree.BottomSignature;
+
 import com.quui.chat.GlobalProperties;
 import com.quui.chat.commands.RubyCaller;
 import com.quui.chat.wordgame.WordGame;
@@ -107,8 +109,7 @@ public class Hollaka extends SuperBot {
                 + " on channel: " + channel);
         System.out.println("Word is running: " + wordGameRunning
                 + ", Word is done: " + sawGameDone + ", WordWord: " + wordWord);
-        if (message.equals(GlobalProperties.getInstance().getCommandPrefix()
-                + "word")
+        if (message.equalsIgnoreCase(name + " " + "word")
         // || message.equals(Commands.prefix + "hardword")
         ) {
             if (!this.sawGameDone)
@@ -131,22 +132,26 @@ public class Hollaka extends SuperBot {
 
             return;
         }
-        if (message.startsWith(GlobalProperties.getInstance()
-                .getCommandPrefix())) {
+        if (message.toLowerCase().startsWith(this.name.toLowerCase())
+                || message.equalsIgnoreCase("!help")) {
+            if (message.equalsIgnoreCase("!help"))
+                message = name + " " + message.substring(1);
             String process = "";
-            if (message.equals(GlobalProperties.getInstance()
-                    .getCommandPrefix()
-                    + "more"))
+            if (message.equalsIgnoreCase(name + " " + "more"))
                 process = restMessage;
 
             // String process = Commands.process(message);
-            if (process.equals("") && message.contains(" "))
-                process = new RubyCaller(scriptsDirectory).exec(message
-                        .split(" ")[0].substring(1), message.substring(message
-                        .indexOf(' ')));
+            String commandSansPrefix = message.toLowerCase().replaceFirst(
+                    name.toLowerCase(), "").trim();
+            System.out.println("Command sans prefix: " + commandSansPrefix);
+            if (process.equals("") && commandSansPrefix.contains(" "))
+                process = new RubyCaller(scriptsDirectory).exec(
+                        commandSansPrefix.split(" ")[0], commandSansPrefix
+                                .substring(commandSansPrefix.indexOf(' ')));
             else if (process.equals(""))
-                process = new RubyCaller(scriptsDirectory).exec(message
-                        .substring(1), "");
+                process = new RubyCaller(scriptsDirectory).exec(
+                        commandSansPrefix.toLowerCase().replaceAll(
+                                name.toLowerCase(), "").trim(), "");
             System.out.println("Command result: " + process);
             int i = 0;
             String[] split = process.split("#");

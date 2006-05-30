@@ -28,6 +28,8 @@ public class GlobalProperties {
 
     private String rubyHome;
 
+    private int millis;
+
     /**
      * The default constructor is private because this is an implementation of
      * the Singleton Pattern.
@@ -43,6 +45,7 @@ public class GlobalProperties {
             configLocation = p.getProperty("config");
             commandPrefix = p.getProperty("command");
             rubyHome = p.getProperty("ruby");
+            millis = Integer.parseInt(p.getProperty("millis"));
             new Talk("config", "topics-test.xml", wnLocation, logLocation);
         } catch (Exception e) {
             e.printStackTrace();
@@ -73,11 +76,16 @@ public class GlobalProperties {
         return configLocation;
     }
 
-    public String getCommandPrefix() {
-        return commandPrefix;
-    }
+//    public String getCommandPrefix() {
+//        return commandPrefix;
+//    }
 
     public String getRubyHome() {
         return rubyHome;
+    }
+
+    public int getMillisForOneWord() {
+        // TODO Auto-generated method stub
+        return millis;
     }
 }

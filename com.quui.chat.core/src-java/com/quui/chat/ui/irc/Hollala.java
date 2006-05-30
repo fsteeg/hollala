@@ -215,15 +215,16 @@ public class Hollala extends SuperBot {
      */
     private String converse(String channel, String sender, String message,
             boolean answerInAnyCase) {
-        // get an answer for the message
-        String answer = talk.process(message.trim().toLowerCase(),
-                answerInAnyCase);
         try {
             System.out.println("Waiting...");
-            Thread.sleep(message.split(" ").length * 100);
+            Thread.sleep(message.split(" ").length
+                    * GlobalProperties.getInstance().getMillisForOneWord());
         } catch (InterruptedException e1) {
             e1.printStackTrace();
         }
+        // get an answer for the message
+        String answer = talk.process(message.trim().toLowerCase(),
+                answerInAnyCase);
         if (answer == null) {
             throw new NullPointerException(
                     "Mind returned null as answer - this could mean there is an error in the topics.xml or other nasty stuff.");
@@ -231,7 +232,8 @@ public class Hollala extends SuperBot {
         answer = constructFinalAnswer(sender, answer);
         try {
             System.out.println("Waiting...");
-            Thread.sleep(answer.split(" ").length * 100);
+            Thread.sleep(answer.split(" ").length
+                    * GlobalProperties.getInstance().getMillisForOneWord());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

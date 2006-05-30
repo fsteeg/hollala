@@ -38,8 +38,7 @@ public class Babelfish {
         ADRESS = "http://babelfish.altavista.com/tr?doit=done&intl=1&tt=urltext&lp="
                 + source + "_" + dest + "&submit=Translate&trtext=" + text;
         // though it says utf-8 on their site, it doesnt seem to be true, sigh
-        String string = RegExLookup.open(ADRESS, "iso-8859-1");
-        Collection<String> results = RegExLookup.match(string, REGEX);
+        Collection<String> results = new WebsiteLookup(ADRESS, "iso-8859-1").match(REGEX);
         // create the result string
         String result = "[" + source + "] " + orig + " # " + "[" + dest + "] ";
         for (String s : results) {

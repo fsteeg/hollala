@@ -46,6 +46,8 @@ public class SuperBot {
 
     private String botDescription;
 
+    private long timeOfLastPing = -1;
+
     /**
      * Connects to an IRC server
      */
@@ -199,6 +201,7 @@ public class SuperBot {
      *            java.lang.String the IRC message
      */
     private boolean pingpong(String msg) throws IOException {
+        this.timeOfLastPing = System.currentTimeMillis();
         if (msg.substring(0, 4).equalsIgnoreCase("ping")) {
             // send a pong back
             String pongmsg = "pong " + msg.substring(5);
@@ -255,7 +258,7 @@ public class SuperBot {
             // see if there's some input
             if (IRCir.ready()) {
                 String msg = IRCir.readLine();
-
+                System.out.println("input: " + msg);
                 // deal with pings
                 if (!pingpong(msg)) {
                     // check for a recognisable command
@@ -348,12 +351,18 @@ public class SuperBot {
                     ircsend("join " + channel);
                 }
                 running = true;
-                while (running) {
+                while (running
+                        && timeOfLastPing == -1
+                        || (System.currentTimeMillis() - timeOfLastPing) < 240000) {
                     service();
                 }
+                timeOfLastPing = -1;
+                System.out.println("DONE RUNNING");
+                botName = botName.endsWith("-2") ? botName.substring(0, botName
+                        .length() - 2) : botName + "-2";
                 logoff();
                 disconnect();
-
+                initIRCBot();
             }
 
         }).start();

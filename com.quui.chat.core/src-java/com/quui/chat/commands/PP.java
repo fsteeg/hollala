@@ -66,9 +66,9 @@ public class PP {
     public void readFromWeb() {
         String loc = "http://www.pragmaticprogrammer.com/ppbook/extracts/rule_list.html";
         String regex = "<tr><td bgcolor=\"#99cc99\" height=20><large><b>(.*?)</b>.*?<td bgcolor=\"#ffffcc\">(.*?)</td></tr>";
-        String content = RegExLookup.open(loc, "iso-8859-1");
         // System.out.println(content);
-        Collection<String> quotes = RegExLookup.match(content, regex);
+        Collection<String> quotes = new WebsiteLookup(loc, "iso-8859-1")
+                .match(regex);
         int i = 1;
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(
