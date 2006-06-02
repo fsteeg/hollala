@@ -5,8 +5,8 @@ def init
   {"pp" => "doPP", "score" => "doScore", "scores" => "doScore"}
 end
 def doPP(incoming)
-  PP.new.getPP
+  [PP.new.getPP,nil]
 end
 def doScore(incoming)
-  WordGameScores.new.getScores(incoming.to_i)
+  [WordGameScores.new.getScores(incoming.to_i),nil]
 end

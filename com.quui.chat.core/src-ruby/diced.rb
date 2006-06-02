@@ -7,7 +7,7 @@ def init
 end
 def doDiced(incoming)
   if (incoming.strip=='')
-    return "Usage: diced <terms>";
+    return ["Usage: diced <terms>",nil];
   else
     text = incoming.split(" ").join("+")
     adress = "http://dict.die.net/?q=#{text}"
@@ -18,5 +18,5 @@ def doDiced(incoming)
       all << "#" << CGI.unescapeHTML(url.join.strip.gsub(/<([^>]+)>/,""))
     end
   end
-  return all
+  return [all,nil]
 end

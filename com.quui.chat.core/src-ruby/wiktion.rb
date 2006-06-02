@@ -7,7 +7,7 @@ def init
 end
 def doWictionary(incoming)
   if (incoming.strip=='')
-    return "Usage: wiktion <terms>";
+    return ["Usage: wiktion <terms>",nil]
   else
     text = incoming.split(" ").join("_")
     adress = "http://en.wiktionary.org/wiki/#{text}"
@@ -19,7 +19,7 @@ def doWictionary(incoming)
     end
   end
   if all ==""
-    return "[ nothing found ]"
+    return ["[ nothing found ]",nil]
   end
-  return all
+  return [all,nil]
 end
