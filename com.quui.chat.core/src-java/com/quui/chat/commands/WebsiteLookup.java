@@ -72,6 +72,7 @@ public class WebsiteLookup {
         try {
             URL url = new URL(adress);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestProperty("User-Agent",""); 
             BufferedReader br = new BufferedReader(new InputStreamReader(conn
                     .getInputStream(), encoding));
             String line;

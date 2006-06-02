@@ -15,9 +15,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.jruby.IRuby;
+import org.jruby.RubyArray;
 import org.jruby.RubyHash;
 
 import com.quui.chat.GlobalProperties;
+import com.quui.chat.ui.irc.SuperBot;
 
 /**
  * @author Fabian Steeg (fsteeg)
@@ -28,6 +30,8 @@ public class RubyCaller {
     private String directory;
 
     protected Map<String, String> map;
+
+    public boolean rubyOnAir = false;
 
     /**
      * @param directory
@@ -86,22 +90,22 @@ public class RubyCaller {
      * @return Return the result of the Ruby program mapped to the command. (Or
      *         an error message)
      */
-    public String exec(String command, String param) {
+    public Object[] exec(String command, String param) {
         if (command.equals("help"))
-            return returnHelp();
+            return new Object[] { returnHelp(), null };
 
         String method = map.get(command);
         if (method == null)
-            return "";
+            method = command;
         System.out.println("About to exec: " + command + " with param: "
                 + param + " with method: " + method);
         try {
             String call = method + "('" + param.trim() + "')";
             System.out.println("Call: " + call);
-            return runtime.evalScript(call).toString();
+            return ((RubyArray) runtime.evalScript(call)).toArray();
         } catch (RuntimeException e) {
             e.printStackTrace();
-            return "Something went wrong!";
+            return new Object[] { "Something went wrong!", null };
         }
 
     }

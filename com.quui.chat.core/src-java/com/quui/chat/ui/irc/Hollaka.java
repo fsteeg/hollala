@@ -19,6 +19,7 @@ import com.quui.chat.GlobalProperties;
 import com.quui.chat.commands.RubyCaller;
 import com.quui.chat.wordgame.WordGame;
 import com.quui.chat.wordgame.WordGameScores;
+import com.sun.org.apache.bcel.internal.verifier.structurals.UninitializedObjectType;
 
 /**
  * Based on Testbot extends BasicIRCBot by David Seager
@@ -44,10 +45,16 @@ public class Hollaka extends SuperBot {
 
     public boolean sawGameDone = true;
 
-    RubyCaller rubyCaller;
+    public boolean rubyIsDone = true;
 
     // TODO externalize
     String scriptsDirectory = "src-ruby";
+
+    RubyCaller rubyCaller;
+
+    private String nextCommand = null;
+
+    private boolean initialized = false;
 
     /**
      * Instantiate a new bot
@@ -123,6 +130,11 @@ public class Hollaka extends SuperBot {
             }
             return;
         }
+        if (message.equals("!rehash") || !initialized) {
+            System.out.println("rehashing");
+            initialized = true;
+            rubyCaller = new RubyCaller(scriptsDirectory);
+        }
         if (message.equals(this.wordWord) && this.wordGameRunning) {
             this.send_privmsg(channel, "Yes, " + sender
                     + ", that's right! It's '" + this.wordWord + "', "
@@ -132,26 +144,57 @@ public class Hollaka extends SuperBot {
 
             return;
         }
-        if (message.toLowerCase().startsWith(this.name.toLowerCase())
-                || message.equalsIgnoreCase("!help")) {
+        if (message.toLowerCase().contains(this.name.toLowerCase())
+                || message.equalsIgnoreCase("!help") || !rubyIsDone) {
             if (message.equalsIgnoreCase("!help"))
                 message = name + " " + message.substring(1);
             String process = "";
-            if (message.equalsIgnoreCase(name + " " + "more"))
+            String commandSansPrefix = message.toLowerCase().replaceFirst(
+                    name.toLowerCase(), "").trim();
+            if (commandSansPrefix.equalsIgnoreCase("more"))
                 process = restMessage;
 
             // String process = Commands.process(message);
-            String commandSansPrefix = message.toLowerCase().replaceFirst(
-                    name.toLowerCase(), "").trim();
+            String method = null;
             System.out.println("Command sans prefix: " + commandSansPrefix);
-            if (process.equals("") && commandSansPrefix.contains(" "))
-                process = new RubyCaller(scriptsDirectory).exec(
-                        commandSansPrefix.split(" ")[0], commandSansPrefix
-                                .substring(commandSansPrefix.indexOf(' ')));
-            else if (process.equals(""))
-                process = new RubyCaller(scriptsDirectory).exec(
-                        commandSansPrefix.toLowerCase().replaceAll(
-                                name.toLowerCase(), "").trim(), "");
+            if (process.equals("")) {
+                String argument = null;
+                if (!rubyIsDone) {
+                    if (nextCommand == null) {
+                        rubyIsDone = true;
+                    } else {
+                        method = nextCommand;
+                        argument = commandSansPrefix;
+                    }
+                    // keep doing what ruby is saying
+                    process = execute(method, argument);
+
+                } else if (commandSansPrefix.contains(" ")) {
+
+                    if (nextCommand != null) {
+                        method = nextCommand;
+                        argument = commandSansPrefix;
+                    } else {
+                        method = commandSansPrefix.split(" ")[0];
+                        argument = commandSansPrefix
+                                .substring(commandSansPrefix.indexOf(' '));
+                    }
+                    // ruby is not doing anything, call with argument
+                    process = execute(method, argument);
+                } else {
+                    method = nextCommand != null ? nextCommand
+                            : commandSansPrefix.toLowerCase().replaceAll(
+                                    name.toLowerCase(), "").trim();
+                    // call with empty argument
+                    process = execute(method, "");
+                }
+
+            }
+            // if (!rubyIsDone)
+            // currentCommand = method;
+            // else
+            // currentCommand = null;
+
             System.out.println("Command result: " + process);
             int i = 0;
             String[] split = process.split("#");
@@ -185,6 +228,15 @@ public class Hollaka extends SuperBot {
             }
             return;
         }
+    }
+
+    private String execute(String method, String argument) {
+        String process;
+        Object[] exec = rubyCaller.exec(method, argument);
+        process = (String) exec[0];
+        rubyIsDone = exec[1] == null;
+        nextCommand = (String) exec[1];
+        return process;
     }
 
     private void saveScore(String sender) {
