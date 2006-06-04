@@ -17,6 +17,7 @@ import java.util.Map;
 import org.jruby.IRuby;
 import org.jruby.RubyArray;
 import org.jruby.RubyHash;
+import org.jruby.runtime.builtin.IRubyObject;
 
 import com.quui.chat.GlobalProperties;
 import com.quui.chat.ui.irc.SuperBot;
@@ -100,12 +101,16 @@ public class RubyCaller {
         System.out.println("About to exec: " + command + " with param: "
                 + param + " with method: " + method);
         try {
+            if (method.equals(""))
+                return new Object[] { returnHelp(), null };
             String call = method + "('" + param.trim() + "')";
             System.out.println("Call: " + call);
-            return ((RubyArray) runtime.evalScript(call)).toArray();
+            IRubyObject evalScript = runtime.evalScript(call);
+            return ((RubyArray) evalScript).toArray();
         } catch (RuntimeException e) {
             e.printStackTrace();
-            return new Object[] { "Something went wrong!", null };
+            // return new Object[] { "Something went wrong!", null };
+            return new Object[] { returnHelp(), null };
         }
 
     }

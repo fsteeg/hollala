@@ -10,7 +10,7 @@ def doLeo(incoming)
   if (incoming.length == 0)
     ["Usage: leo <word-to-translate>",nil]
   else
-    Leo::lookup(incoming)
+    [Leo::lookup(incoming),nil]
   end
 end
 def doBabel(incoming)

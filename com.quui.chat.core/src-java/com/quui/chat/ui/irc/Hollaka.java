@@ -204,7 +204,7 @@ public class Hollaka extends SuperBot {
                 // FIXME
                 if (m.length() > 350)
                     m = m.substring(0, 350) + "...";
-                this.send_privmsg(channel, m.trim());
+                this.send_privmsg(channel, m/*.trim()*/);
                 try {
                     Thread.sleep(2500);
                 } catch (InterruptedException e) {
@@ -231,12 +231,18 @@ public class Hollaka extends SuperBot {
     }
 
     private String execute(String method, String argument) {
-        String process;
-        Object[] exec = rubyCaller.exec(method, argument);
-        process = (String) exec[0];
-        rubyIsDone = exec[1] == null;
-        nextCommand = (String) exec[1];
-        return process;
+        try {
+            String process;
+            Object[] exec = rubyCaller.exec(method, argument);
+            process = (String) exec[0];
+            rubyIsDone = exec[1] == null;
+            nextCommand = (String) exec[1];
+            return process;
+        } catch (RuntimeException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return "";
     }
 
     private void saveScore(String sender) {
