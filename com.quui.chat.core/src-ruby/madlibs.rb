@@ -13,14 +13,16 @@ end
 # file where the patterns are stored
 @file = "src-ruby/madlibs"
 # mapping of variables used
-@map = {}
+@map = Hash.new
 
 def list_patterns incoming
   [open(@file,"r"){ |file| file.collect{ |line| line << "#" } }.join(" "),nil]
 end
 
 def start_mad(incoming) 
-  if incoming != ''
+  if incoming != '' and not incoming.include? "(("
+    ["Usage: madlibs <a pattern (see madlibs-patterns)> or nothing.",nil]
+  elsif incoming != ''
     # adds the given line to the file
     open(@file,"a+"){ |file| file << "\n" << incoming }
     ["OK.", nil]

@@ -285,6 +285,12 @@ public class Hollaka extends SuperBot {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }  
+
+    @Override
+    protected void init() {
+        rubyCaller = new RubyCaller(scriptsDirectory);
+        super.init();
     }
 
 }

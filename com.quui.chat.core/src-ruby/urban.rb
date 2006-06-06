@@ -18,5 +18,10 @@ def doUrban(incoming)
       all << "#" << CGI.unescapeHTML(url.join.strip.gsub(/<([^>]+)>/,""))
     end
   end
+  p "ALLLLLLLLLLLLLLLLL: " << all
+  if(all[0..5]=="#Add a")
+  p "HUHUHUHUHUHUHUHUHUHUHUHUHUHUHHUUHUHUH"
+    all << " http://www.urbandictionary.com/insert.php?word=#{text}"
+  end
   return [all,nil]
 end

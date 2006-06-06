@@ -22,62 +22,62 @@ def doGCount(incoming)
   if(all.strip=='') 
     all = "0"
   end
-  return [lcd(all) << " " << URI.escape(adress),nil] 
+  return [lcd(all) << " Hits: " << URI.escape(adress),nil] 
 end
 
 def lcd number
   puts "Number: " + number
-  s1 = "";s2 = "";s3 = ""
+  rows = ["","",""]#s1 = "";s2 = "";s3 = ""
   number.to_s.split(//).each do |char|
     puts char
     case char
     when "," :
-      s1 << " . "
-      s2 << " . " 
-      s3 << " . "
+      rows[0] << " . "
+      rows[1] << " . " 
+      rows[2] << " . "
     when "1" : 
-      s1 << " . "
-      s2 << " | " 
-      s3 << " | "
+      rows[0] << " . "
+      rows[1] << " | " 
+      rows[2] << " | "
     when "2" : 
-      s1 << " _ " 
-      s2 << " _|" 
-      s3 << "|_ "
+      rows[0] << " _ " 
+      rows[1] << " _|" 
+      rows[2] << "|_ "
     when "3" : 
-      s1 << " _ "
-      s2 << " _|" 
-      s3 << " _|"
+      rows[0] << " _ "
+      rows[1] << " _|" 
+      rows[2] << " _|"
     when "4" : 
-      s1 << ". ." 
-      s2 << "|_|" 
-      s3 << ". |"
+      rows[0] << ". ." 
+      rows[1] << "|_|" 
+      rows[2] << ". |"
     when "5" : 
-      s1 << " _ "
-      s2 << "|_ " 
-      s3 << " _|"
+      rows[0] << " _ "
+      rows[1] << "|_ " 
+      rows[2] << " _|"
     when "6" : 
-      s1 << " _ " 
-      s2 << "|_ " 
-      s3 << "|_|"
+      rows[0] << " _ " 
+      rows[1] << "|_ " 
+      rows[2] << "|_|"
     when "7" : 
-      s1 << " _ " 
-      s2 << "| |" 
-      s3 << "  |"
+      rows[0] << " _ " 
+      rows[1] << "| |" 
+      rows[2] << "  |"
     when "8" : 
-      s1 << " _ "
-      s2 << "|_|" 
-      s3 << "|_|"
+      rows[0] << " _ "
+      rows[1] << "|_|" 
+      rows[2] << "|_|"
     when "9" : 
-      s1 << " _ " 
-      s2 << "|_|" 
-      s3 << " _|"
+      rows[0] << " _ " 
+      rows[1] << "|_|" 
+      rows[2] << " _|"
     when "0" : 
-      s1 << " _ "
-      s2 << "| |" 
-      s3 << "|_|"
+      rows[0] << " _ "
+      rows[1] << "| |" 
+      rows[2] << "|_|"
     end
   end
-  res = [s1, s2 << " Hits at",s3].join("#")
-  res.split("#").each{|line| puts line}
-  return res
+  #res = [s1, s2 << " Hits at",s3].join("#")
+  #res.split("#").each{|line| puts line}
+  return rows.join("#")
 end

@@ -350,6 +350,7 @@ public class SuperBot {
                 for (String channel : channels) {
                     ircsend("join " + channel);
                 }
+                init();
                 running = true;
                 while (running
                         && timeOfLastPing == -1
@@ -366,5 +367,10 @@ public class SuperBot {
             }
 
         }).start();
+    }
+
+    protected void init() {
+        // TODO Auto-generated method stub
+        
     }
 }
