@@ -11,6 +11,7 @@ package com.quui.chat.commands;
 
 import java.io.File;
 import java.io.FilenameFilter;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -120,13 +121,21 @@ public class RubyCaller {
      *         Built-in commands are added.
      */
     private String returnHelp() {
-        String r = "Use my name plus: ";
-        // ruby-commands
-        for (String s : map.keySet()) {
-            r = r + s + ", ";
+        String r = null;
+        try {
+            r = new String("\u0002Use my name plus: ".getBytes(),"UTF-8");
+            System.out.println("STRING: " + r);
+            // ruby-commands
+            for (String s : map.keySet()) {
+                r = r + s + ", ";
+            }
+            // non-ruby-commands
+            r = r + " " + "word, " + "more";
+        } catch (UnsupportedEncodingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
-        // non-ruby-commands
-        r = r.trim() + " " + "word, " + "more";
+      
         return r;
     }
 

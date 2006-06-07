@@ -102,7 +102,7 @@ public class SuperBot {
         // Log.logger.debug("[IRC] irc: '" + message + "'");
         System.out.println("[IRC] irc: '" + message + "'");
         try {
-            IRCor.write(message);
+            IRCor.write(new String(message.getBytes(), "UTF-8"));
             IRCor.newLine();
             IRCor.flush();
         } catch (IOException e) {
@@ -242,7 +242,7 @@ public class SuperBot {
      *            java.lang.String
      */
     public void send_privmsg(String username, String message) {
-        String command = "privmsg " + username + " :" + message;
+        String command = "privmsg " + username + " :"+ message;
 
         ircsend(command);
 
@@ -371,6 +371,6 @@ public class SuperBot {
 
     protected void init() {
         // TODO Auto-generated method stub
-        
+
     }
 }

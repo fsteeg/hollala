@@ -212,7 +212,7 @@ public class Hollaka extends SuperBot {
                     e.printStackTrace();
                 }
                 i++;
-                if (i == 3) {
+                if (i == 5) {
                     String substring = process.substring(process.indexOf(m)
                             + m.length());
                     if (substring != null

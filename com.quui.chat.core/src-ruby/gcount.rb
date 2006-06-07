@@ -3,6 +3,15 @@ require 'cgi'
 require 'uri'
 include_class "com.quui.chat.commands.WebsiteLookup"
 include_class "com.quui.chat.GlobalProperties"
+
+#DIGITS = <<END_DIGITS.split("\n").map { |row| row.split(" # ")}.transpose
+# -  #      #  -  #  -  #     #  -  #  -  #  -  #  -  #  -
+#| | #    | #   | #   | # | | # |   # |   #   | # | | # | |
+#    #      #  -  #  -  #  -  #  -  #  -  #     #  -  #  -
+#| | #    | # |   #   | #   | #   | # | | #   | # | | #   |
+# -  #      #  -  #  -  #     #  -  #  -  #     #  -  #  -
+#END_DIGITS
+
 def init
   {"gcount"=>"doGCount"}
 end
@@ -28,8 +37,14 @@ end
 def lcd number
   puts "Number: " + number
   rows = ["","",""]#s1 = "";s2 = "";s3 = ""
+#  rows = []
   number.to_s.split(//).each do |char|
     puts char
+#    rows << [" "] * (1*2+3) if rows.size>0
+#    rows << DIGITS[char.to_i]
+    
+    
+    
     case char
     when "," :
       rows[0] << " . "
@@ -77,6 +92,8 @@ def lcd number
       rows[2] << "|_|"
     end
   end
+#  rows = ([""] * (1 * 2+3)).zip(*rows)
+#  rows.collect{|l|l.join}.join("#")
   #res = [s1, s2 << " Hits at",s3].join("#")
   #res.split("#").each{|line| puts line}
   return rows.join("#")
