@@ -9,9 +9,9 @@ def init
 end
 
 def start_battle incoming
-  require "src-ruby/rock_paper_scissors/rock_paper_scissors"
-  Dir.foreach("src-ruby/rock_paper_scissors/players") do |file|
-    file = "src-ruby/rock_paper_scissors/players/" << file
+  require "src-ruby/rps/rock_paper_scissors"
+  Dir.foreach("src-ruby/rps/players") do |file|
+    file = "src-ruby/rps/players/" << file
     p "FILE: " << file
     
     next if file =~ /^\./
