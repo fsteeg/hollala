@@ -1,10 +1,13 @@
 package com.quui.chat.tests;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
 
 import junit.framework.TestCase;
 import net.didion.jwnl.JWNLException;
 
-import com.quui.chat.GlobalProperties;
 import com.quui.chat.Talk;
 import com.quui.chat.wordgame.WordGame;
 
@@ -47,12 +50,20 @@ public class WordGameTest extends TestCase {
 
     @Override
     protected void setUp() throws Exception {
+        Properties p = new Properties();
+        try {
+            p.load(new FileInputStream("config/hollaka.properties"));
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         @SuppressWarnings("unused")
-        Talk t = new Talk("config", "topics-test.xml", GlobalProperties
-                .getInstance().getWNLocation(), GlobalProperties.getInstance()
-                .getLogLocation());
+        Talk t = new Talk("config", "topics-test.xml", p.getProperty("wn"), p
+                .getProperty("log"));
         w = new WordGame();
         super.setUp();
     }
-
 }

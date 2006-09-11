@@ -2,7 +2,6 @@ require 'java'
 require 'cgi'
 require 'uri'
 include_class "com.quui.chat.commands.WebsiteLookup"
-include_class "com.quui.chat.GlobalProperties"
 
 #DIGITS = <<END_DIGITS.split("\n").map { |row| row.split(" # ")}.transpose
 # -  #      #  -  #  -  #     #  -  #  -  #  -  #  -  #  -

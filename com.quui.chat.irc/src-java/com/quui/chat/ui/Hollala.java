@@ -16,7 +16,6 @@ import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 
-import com.quui.chat.GlobalProperties;
 import com.quui.chat.Log;
 import com.quui.chat.Preprocessor;
 import com.quui.chat.Talk;
@@ -66,10 +65,12 @@ public class Hollala extends SuperBot {
     public Hollala(String configFile) {
         super();
         initProperties(configFile);
-        super.setBotName(name);
-        super.setBotDescription(description);
-        initCoreBot();
-        initIRCBot();
+        if (properties.get("run").equals("yes")) {
+            super.setBotName(name);
+            super.setBotDescription(description);
+            initCoreBot();
+            initIRCBot();
+        }
     }
 
     /**
@@ -84,10 +85,10 @@ public class Hollala extends SuperBot {
         this.name = properties.getProperty("name");
         this.server = properties.getProperty("server");
         this.description = properties.getProperty("description");
-        this.logLocation = GlobalProperties.getInstance().getLogLocation()
-                + "-" + name.toLowerCase();
-        this.wnLocation = GlobalProperties.getInstance().getWNLocation();
-        this.topicFolder = GlobalProperties.getInstance().getConfigLocation();
+        this.logLocation = properties.getProperty("log") + "-"
+                + name.toLowerCase();
+        this.wnLocation = properties.getProperty("wn");
+        this.topicFolder = properties.getProperty("config");
         this.topicFile = properties.getProperty("topics") + "-"
                 + name.toLowerCase() + ".xml";
         this.channels = getItems("channels");
@@ -218,7 +219,7 @@ public class Hollala extends SuperBot {
         try {
             System.out.println("Waiting...");
             Thread.sleep(message.split(" ").length
-                    * GlobalProperties.getInstance().getMillisForOneWord());
+                    * Integer.parseInt(properties.getProperty("millis")));
         } catch (InterruptedException e1) {
             e1.printStackTrace();
         }
@@ -233,7 +234,7 @@ public class Hollala extends SuperBot {
         try {
             System.out.println("Waiting...");
             Thread.sleep(answer.split(" ").length
-                    * GlobalProperties.getInstance().getMillisForOneWord());
+                    * Integer.parseInt(properties.getProperty("millis")));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

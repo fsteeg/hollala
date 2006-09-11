@@ -1,7 +1,6 @@
 require 'java'
 require 'cgi'
 include_class "com.quui.chat.commands.WebsiteLookup"
-include_class "com.quui.chat.GlobalProperties"
 def init
   {"diced"=>"doDiced"}
 end

@@ -13,13 +13,9 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Properties;
 
-import sun.reflect.generics.tree.BottomSignature;
-
-import com.quui.chat.GlobalProperties;
 import com.quui.chat.commands.RubyCaller;
 import com.quui.chat.wordgame.WordGame;
 import com.quui.chat.wordgame.WordGameScores;
-import com.sun.org.apache.bcel.internal.verifier.structurals.UninitializedObjectType;
 
 /**
  * Based on Testbot extends BasicIRCBot by David Seager
@@ -63,9 +59,12 @@ public class Hollaka extends SuperBot {
         super();
         initWordScoreProperties();
         initProperties(configFile);
-        super.setBotDescription(description);
-        super.setBotName(name);
-        initIRCBot();
+        if (properties.get("run").equals("yes")) {
+            super.setBotDescription(description);
+            super.setBotName(name);
+            initIRCBot();
+        }
+
     }
 
     private void initProperties(String propertiesLocation) {
@@ -133,7 +132,7 @@ public class Hollaka extends SuperBot {
         if (message.equals("!rehash") || !initialized) {
             System.out.println("rehashing");
             initialized = true;
-            rubyCaller = new RubyCaller(scriptsDirectory);
+            rubyCaller = new RubyCaller(scriptsDirectory, properties);
         }
         if (message.equals(this.wordWord) && this.wordGameRunning) {
             this.send_privmsg(channel, "Yes, " + sender
@@ -204,7 +203,7 @@ public class Hollaka extends SuperBot {
                 // FIXME
                 if (m.length() > 350)
                     m = m.substring(0, 350) + "...";
-                this.send_privmsg(channel, m/*.trim()*/);
+                this.send_privmsg(channel, m/* .trim() */);
                 try {
                     Thread.sleep(2500);
                 } catch (InterruptedException e) {
@@ -285,11 +284,11 @@ public class Hollaka extends SuperBot {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }  
+    }
 
     @Override
     protected void init() {
-        rubyCaller = new RubyCaller(scriptsDirectory);
+        rubyCaller = new RubyCaller(scriptsDirectory, properties);
         super.init();
     }
 

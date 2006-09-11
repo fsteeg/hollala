@@ -14,14 +14,12 @@ import java.io.FilenameFilter;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 
 import org.jruby.IRuby;
 import org.jruby.RubyArray;
 import org.jruby.RubyHash;
 import org.jruby.runtime.builtin.IRubyObject;
-
-import com.quui.chat.GlobalProperties;
-import com.quui.chat.ui.SuperBot;
 
 /**
  * @author Fabian Steeg (fsteeg)
@@ -35,11 +33,14 @@ public class RubyCaller {
 
     public boolean rubyOnAir = false;
 
+    private Properties properties;
+
     /**
      * @param directory
      *            The directory containing the Ruby programs to plug in
      */
-    public RubyCaller(String directory) {
+    public RubyCaller(String directory, Properties props) {
+        this.properties = props;
         this.directory = directory;
         map = new HashMap<String, String>();
         // runtime.setCurrentDirectory("/opt/local/lib/ruby/1.8/");
@@ -54,8 +55,7 @@ public class RubyCaller {
     private void loadFiles() {
         runtime = org.jruby.Ruby.getDefaultInstance();
         // TODO externalize
-        runtime.evalScript("$: << '"
-                + GlobalProperties.getInstance().getRubyHome() + "'");
+        runtime.evalScript("$: << '" + properties.getProperty("ruby") + "'");
         try {
 
             String[] files = new File(directory).list(new FilenameFilter() {
@@ -123,7 +123,7 @@ public class RubyCaller {
     private String returnHelp() {
         String r = null;
         try {
-            r = new String("\u0002Use my name plus: ".getBytes(),"UTF-8");
+            r = new String("\u0002Use my name plus: ".getBytes(), "UTF-8");
             System.out.println("STRING: " + r);
             // ruby-commands
             for (String s : map.keySet()) {
@@ -135,7 +135,7 @@ public class RubyCaller {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-      
+
         return r;
     }
 

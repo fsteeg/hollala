@@ -1,6 +1,11 @@
 package com.quui.chat.tests;
 
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,7 +17,17 @@ public class RubyCallerTest {
 
     @Before
     public void init() {
-        caller = new RubyCaller("src-ruby");
+        Properties p = new Properties();
+        try {
+            p.load(new FileInputStream("config/hollaka.properties"));
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        caller = new RubyCaller("src-ruby", p);
     }
 
     @Test
