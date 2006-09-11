@@ -9,9 +9,12 @@
  */
 package com.quui.chat;
 
-import junit.framework.TestCase;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
 
-import com.quui.chat.Talk;
+import junit.framework.TestCase;
 
 /**
  * Tests for the mind
@@ -23,8 +26,16 @@ public class MindTest extends TestCase {
 
     protected void setUp() throws Exception {
         super.setUp();
-        t = new Talk("config", "test.xml",
-                GlobalProperties.getInstance().getWNLocation(), GlobalProperties.getInstance().getLogLocation());
+        Properties p = new Properties();
+        try {
+            p.load(new FileInputStream("config/global.properties"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        t = new Talk("config", "test.xml", p.getProperty("wn"), p
+                .getProperty("log"));
     }
 
     /**

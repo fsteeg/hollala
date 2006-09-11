@@ -9,9 +9,13 @@
  */
 package com.quui.chat;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
 import junit.framework.TestCase;
 
-import com.quui.chat.Talk;
 import com.quui.chat.mind.wn.SemanticRelations;
 
 public class SemanticRelationsTest extends TestCase {
@@ -21,9 +25,16 @@ public class SemanticRelationsTest extends TestCase {
 
     protected void setUp() throws Exception {
         super.setUp();
-        t = new Talk("config", "topics-test.xml", GlobalProperties
-                .getInstance().getWNLocation(), GlobalProperties.getInstance()
-                .getLogLocation());
+        Properties p = new Properties();
+        try {
+            p.load(new FileInputStream("config/global.properties"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        t = new Talk("config", "topics-test.xml", p.getProperty("wn"), p
+                .getProperty("log"));
     }
 
     /*

@@ -77,7 +77,7 @@ public class WNLookup {
         } catch (JWNLException e) {
             e.printStackTrace();
         }
-        return "[ nothing found ]";
+        return "";
     }
 
     public String getStem(String word) {
@@ -159,8 +159,8 @@ public class WNLookup {
     public static String getStaticDefString(String word) {
         String result = "";
         Vector<Synset> defs = SemanticRelations.getSynsets(word);
-        if (defs.size() == 0)
-            result += "[ nothing found ]";
+//        if (defs.size() == 0)
+//            result += "[ nothing found ]";
         for (Synset s : defs) {
             result = result + " " + s.getGloss() + " #";
         }

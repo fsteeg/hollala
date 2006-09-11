@@ -423,8 +423,8 @@ public class SemanticRelations {
 
     private static Vector<String> getLemmata(PointerTargetNodeList hypernyms) {
         Vector<String> result = new Vector<String>();
-        if (hypernyms.size() == 0)
-            result.add("[ none ]");
+//        if (hypernyms.size() == 0)
+//            result.add("[ none ]");
         Iterator i = hypernyms.iterator();
         // ...add all hypernyms
         while (i.hasNext()) {
@@ -444,8 +444,8 @@ public class SemanticRelations {
     public static String getHyperString(String word) {
         String result = "";
         Vector<String> parents = SemanticRelations.getParents(word);
-        if (parents.size() == 0)
-            result += "[ none ]";
+//        if (parents.size() == 0)
+//            result += "[ none ]";
         for (String s : parents) {
             result = result + s + " ";
         }
@@ -456,8 +456,8 @@ public class SemanticRelations {
     public static String getHypoString(String word) {
         String result = "";
         Vector<String> children = SemanticRelations.getChildren(word);
-        if (children.size() == 0)
-            result += "[ none ]";
+//        if (children.size() == 0)
+//            result += "[ none ]";
         for (String s : children) {
             result = result + s + " ";
         }
@@ -468,8 +468,8 @@ public class SemanticRelations {
     public static String getAntoString(String word) {
         String result = "";
         Vector<String> children = SemanticRelations.getAntonymes(word);
-        if (children.size() == 0)
-            result += "[ none ]";
+//        if (children.size() == 0)
+//            result += "[ none ]";
         for (String s : children) {
             result = result + s + " ";
         }
@@ -480,8 +480,8 @@ public class SemanticRelations {
     public static String getSiblingsString(String word) {
         String result = "";
         Vector<String> children = SemanticRelations.getSiblings(word);
-        if (children.size() == 0)
-            result += "[ none ]";
+//        if (children.size() == 0)
+//            result += "[ none ]";
         for (String s : children) {
             result = result + s + " ";
         }
@@ -492,8 +492,8 @@ public class SemanticRelations {
     public static String getMeroString(String word) {
         String result = "";
         Vector<String> children = SemanticRelations.getMeronyms(word);
-        if (children.size() == 0)
-            result += "[ none ]";
+//        if (children.size() == 0)
+//            result += "[ none ]";
         for (String s : children) {
             result = result + s + " ";
         }
@@ -504,8 +504,8 @@ public class SemanticRelations {
     public static String getHoloString(String word) {
         String result = "";
         Vector<String> children = SemanticRelations.getHolonyms(word);
-        if (children.size() == 0)
-            result += "[ none ]";
+//        if (children.size() == 0)
+//            result += "[ none ]";
         for (String s : children) {
             result = result + s + " ";
         }
@@ -516,8 +516,8 @@ public class SemanticRelations {
     public static String getSynoString(String word) {
         String result = "";
         Vector<String> synonyms = SemanticRelations.getSynonymes(word);
-        if (synonyms.size() == 0)
-            result += "[ none ]";
+//        if (synonyms.size() == 0)
+//            result += "[ none ]";
         for (String s : synonyms) {
             result = result + s + " ";
         }

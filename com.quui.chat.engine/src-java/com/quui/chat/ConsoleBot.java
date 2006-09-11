@@ -9,20 +9,14 @@
  */
 package com.quui.chat;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
 
 public class ConsoleBot {
 
     private static String NAME = "Console";
-
-    private static String logFolder = GlobalProperties.getInstance()
-            .getLogLocation()
-            + "/logs-" + NAME.toLowerCase();
-
-    private static String wnLocation = GlobalProperties.getInstance()
-            .getWNLocation();
-
-    private static String topicFolder = GlobalProperties.getInstance()
-            .getConfigLocation();
 
     private static String topicFile = "topics-" + NAME.toLowerCase() + ".xml";
 
@@ -33,6 +27,17 @@ public class ConsoleBot {
      *            nothing, using values in code
      */
     public static void main(String[] args) {
+        Properties p = new Properties();
+        try {
+            p.load(new FileInputStream("config/global.properties"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String logFolder = p.getProperty("log") + "/logs-" + NAME.toLowerCase();
+        String wnLocation = p.getProperty("wn");
+        String topicFolder = p.getProperty("config");
         talk = new Talk(topicFolder, topicFile, wnLocation, logFolder);
         talk.talk();
     }
