@@ -201,8 +201,8 @@ public class Hollaka extends SuperBot {
                 // if(m.startsWith("["))
                 // continue;
                 // FIXME
-                if (m.length() > 350)
-                    m = m.substring(0, 350) + "...";
+                if (m.length() > 950)
+                    m = m.substring(0, 950) + "...";
                 this.send_privmsg(channel, m/* .trim() */);
                 try {
                     Thread.sleep(2500);
