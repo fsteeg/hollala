@@ -148,8 +148,9 @@ public class Hollaka extends SuperBot {
             if (message.equalsIgnoreCase("!help"))
                 message = name + " " + message.substring(1);
             String process = "";
-            String commandSansPrefix = message.toLowerCase().replaceFirst(
-                    name.toLowerCase(), "").trim();
+            String commandSansPrefix = message.replaceFirst(
+                    name.toLowerCase(), "").trim().replaceFirst(
+                            name, "").trim();
             if (commandSansPrefix.equalsIgnoreCase("more"))
                 process = restMessage;
 
@@ -182,8 +183,7 @@ public class Hollaka extends SuperBot {
                     process = execute(method, argument);
                 } else {
                     method = nextCommand != null ? nextCommand
-                            : commandSansPrefix.toLowerCase().replaceAll(
-                                    name.toLowerCase(), "").trim();
+                            : commandSansPrefix;
                     // call with empty argument
                     process = execute(method, "");
                 }

@@ -13,10 +13,15 @@ def getPP(incoming)
 #      answer = answer + "#" + PP.new.getPP
 #    }
 #  end
-  ["You might find it useful to ponder on these:#" + pp.getPP + "#" + pp.getPP + "#" + pp.getPP,nil]
+  #["You might find it useful to ponder on these:#" + pp.getPP + "#" + pp.getPP + "#" + pp.getPP,nil]
+  ["You might find it useful to ponder on this:#" + pp.getPP,nil]
 end
 def addPP(incoming)
-	PP.new.addPP(incoming)
+	if (incoming.strip=='')
+		return ["Usage: ppadd <quote to add>",nil]
+	else
+		[PP.new.addPP(incoming),nil]
+	end
 end
 def doScore(incoming)
   [WordGameScores.new.getScores(incoming.to_i),nil]

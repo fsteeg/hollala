@@ -93,6 +93,7 @@ public class RubyCaller {
      *         an error message)
      */
     public Object[] exec(String command, String param) {
+    	param = param.replaceAll("'", "\\\\'");
         if (command.equals("help"))
             return new Object[] { returnHelp(), null };
 
