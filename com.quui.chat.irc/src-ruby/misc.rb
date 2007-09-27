@@ -2,9 +2,9 @@ require 'java'
 include_class "com.quui.chat.commands.PP"
 include_class "com.quui.chat.wordgame.WordGameScores"
 def init
-  {"pp" => "doPP", "score" => "doScore", "scores" => "doScore"}
+  {"pp" => "getPP", "ppadd" => "addPP", "score" => "doScore", "scores" => "doScore"}
 end
-def doPP(incoming)
+def getPP(incoming)
   pp = PP.new
 #  answer = PP.new.getPP
 #  if(incoming!=nil)
@@ -14,6 +14,9 @@ def doPP(incoming)
 #    }
 #  end
   ["You might find it useful to ponder on these:#" + pp.getPP + "#" + pp.getPP + "#" + pp.getPP,nil]
+end
+def addPP(incoming)
+	PP.new.addPP(incoming)
 end
 def doScore(incoming)
   [WordGameScores.new.getScores(incoming.to_i),nil]

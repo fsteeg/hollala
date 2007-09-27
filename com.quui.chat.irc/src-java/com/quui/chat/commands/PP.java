@@ -24,74 +24,98 @@ import java.util.Vector;
  */
 public class PP {
 
-    /**
-     * @return A random tip or quote from "The pragmatic programmer"
-     */
-    public static String getStaticPP() {
-        List<String> quotes = getQuotes("config/pp-quotes");
-        Collections.shuffle(quotes);
-        return quotes.get(0);
-    }
+	private static final String CONFIG_PP_QUOTES = "config/pp-quotes";
 
-    /**
-     * @return See getStaticPP()
-     */
-    public String getPP() {
-        return PP.getStaticPP();
-    }
+	/**
+	 * @return A random tip or quote from "The pragmatic programmer"
+	 */
+	public static String getStaticPP() {
+		List<String> quotes = getQuotes(CONFIG_PP_QUOTES);
+		Collections.shuffle(quotes);
+		return quotes.get(0);
+	}
 
-    /**
-     * @param string
-     *            The location of the file containing the quotes
-     * @return Returns all the quotes in the file
-     */
-    private static List<String> getQuotes(String string) {
-        List<String> result = new Vector<String>();
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(string));
-            String line = "";
-            while ((line = reader.readLine()) != null)
-                result.add(line);
+	/**
+	 * @return A message indicating if adding worked or not.
+	 */
+	public static String addStaticPP(String toAdd) {
+		try {
+			FileWriter writer = new FileWriter(CONFIG_PP_QUOTES, true);
+			writer.write(System.getProperty("line.separator") + toAdd);
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+			return "Nah, can't do it: " + e.getMessage();
+		}
+		return "Alright, added: " + toAdd;
+	}
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
+	/**
+	 * @return See getStaticPP()
+	 */
+	public String getPP() {
+		return PP.getStaticPP();
+	}
+	
+	/**
+	 * @return See addStaticPP()
+	 */
+	public String addPP(String toAdd) {
+		return PP.addStaticPP(toAdd);
+	}
 
-    /**
-     * Gets the tips, writes them to a file... This way I retrived the basic tip
-     * from their website...
-     */
-    public void readFromWeb() {
-        String loc = "http://www.pragmaticprogrammer.com/ppbook/extracts/rule_list.html";
-        String regex = "<tr><td bgcolor=\"#99cc99\" height=20><large><b>(.*?)</b>.*?<td bgcolor=\"#ffffcc\">(.*?)</td></tr>";
-        // System.out.println(content);
-        Collection<String> quotes = new WebsiteLookup(loc, "iso-8859-1")
-                .match(regex);
-        int i = 1;
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(
-                    "config/generated-pp-quotes"));
-            for (String string : quotes) {
-                System.out.println(string);
-                writer.write(string + "\n");
-                i++;
-            }
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+	/**
+	 * @param string
+	 *            The location of the file containing the quotes
+	 * @return Returns all the quotes in the file
+	 */
+	private static List<String> getQuotes(String string) {
+		List<String> result = new Vector<String>();
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(string));
+			String line = "";
+			while ((line = reader.readLine()) != null)
+				result.add(line);
 
-    }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 
-    /**
-     * To read the basic tips from the pragmatic progammer's website
-     * 
-     * @param a
-     *            Nothing
-     */
-    public static void main(String[] a) {
-        new PP().readFromWeb();
-    }
+	/**
+	 * Gets the tips, writes them to a file... This way I retrived the basic tip
+	 * from their website...
+	 */
+	public void readFromWeb() {
+		String loc = "http://www.pragmaticprogrammer.com/ppbook/extracts/rule_list.html";
+		String regex = "<tr><td bgcolor=\"#99cc99\" height=20><large><b>(.*?)</b>.*?<td bgcolor=\"#ffffcc\">(.*?)</td></tr>";
+		// System.out.println(content);
+		Collection<String> quotes = new WebsiteLookup(loc, "iso-8859-1")
+				.match(regex);
+		int i = 1;
+		try {
+			BufferedWriter writer = new BufferedWriter(new FileWriter(
+					"config/generated-pp-quotes"));
+			for (String string : quotes) {
+				System.out.println(string);
+				writer.write(string + "\n");
+				i++;
+			}
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	/**
+	 * To read the basic tips from the pragmatic progammer's website
+	 * 
+	 * @param a
+	 *            Nothing
+	 */
+	public static void main(String[] a) {
+		new PP().readFromWeb();
+	}
 }
