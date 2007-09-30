@@ -65,10 +65,10 @@ public class Hollala extends SuperBot {
     public Hollala(String configFile) {
         super();
         initProperties(configFile);
+        super.setBotName(name);
+        super.setBotDescription(description);
+        initCoreBot();
         if (properties.get("run").equals("yes")) {
-            super.setBotName(name);
-            super.setBotDescription(description);
-            initCoreBot();
             initIRCBot();
         }
     }
@@ -214,7 +214,7 @@ public class Hollala extends SuperBot {
      * @param message
      *            The message to answer
      */
-    private String converse(String channel, String sender, String message,
+    public String converse(String channel, String sender, String message,
             boolean answerInAnyCase) {
         try {
             System.out.println("Waiting...");
@@ -267,5 +267,6 @@ public class Hollala extends SuperBot {
         }
         return answer;
     }
+
 
 }

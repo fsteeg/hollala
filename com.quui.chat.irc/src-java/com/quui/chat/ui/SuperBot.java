@@ -343,7 +343,6 @@ public class SuperBot {
      */
     public void initIRCBot() {
         new Thread(new Runnable() {
-
             public void run() {
                 connect(server, 6667);
                 logon();

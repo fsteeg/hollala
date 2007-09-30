@@ -23,5 +23,8 @@ def doUrban(incoming)
   p "HUHUHUHUHUHUHUHUHUHUHUHUHUHUHHUUHUHUH"
     all << " http://www.urbandictionary.com/insert.php?word=#{text}"
   end
+  if(all.strip=='')
+  	all = 'No idea!'
+  end
   return [all,nil]
 end

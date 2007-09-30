@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.quui.chat.commands.RubyCaller;
+import com.quui.chat.ui.HollalaSolution;
 
 public class RubyCallerTest {
 
@@ -27,7 +28,7 @@ public class RubyCallerTest {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        caller = new RubyCaller("src-ruby", p);
+        caller = new RubyCaller("src-ruby", p, new HollalaSolution());
     }
 
     @Test

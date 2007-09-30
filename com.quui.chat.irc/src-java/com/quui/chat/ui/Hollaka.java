@@ -132,7 +132,7 @@ public class Hollaka extends SuperBot {
         if (message.equals("!rehash") || !initialized) {
             System.out.println("rehashing");
             initialized = true;
-            rubyCaller = new RubyCaller(scriptsDirectory, properties);
+            rubyCaller = new RubyCaller(scriptsDirectory, properties, new HollalaSolution());
         }
         if (message.equals(this.wordWord) && this.wordGameRunning) {
             this.send_privmsg(channel, "Yes, " + sender
@@ -288,7 +288,7 @@ public class Hollaka extends SuperBot {
 
     @Override
     protected void init() {
-        rubyCaller = new RubyCaller(scriptsDirectory, properties);
+        rubyCaller = new RubyCaller(scriptsDirectory, properties, new HollalaSolution());
         super.init();
     }
 
