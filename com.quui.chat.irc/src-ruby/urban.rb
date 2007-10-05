@@ -1,4 +1,5 @@
-require 'java'
+include Java
+require "hollala.jar" 
 require 'cgi'
 include_class "com.quui.chat.commands.WebsiteLookup"
 

@@ -27,11 +27,20 @@ public class PP {
 	private static final String CONFIG_PP_QUOTES = "config/pp-quotes";
 
 	/**
+	 * @param arg
 	 * @return A random tip or quote from "The pragmatic programmer"
 	 */
-	public static String getStaticPP() {
+	public static String getStaticPP(String arg) {
 		List<String> quotes = getQuotes(CONFIG_PP_QUOTES);
 		Collections.shuffle(quotes);
+		if (arg.trim().equals(""))
+			return quotes.get(0);
+		else {
+			for (String key : quotes) {
+				if (key.toLowerCase().contains(arg.toLowerCase()))
+					return key;
+			}
+		}
 		return quotes.get(0);
 	}
 
@@ -53,10 +62,10 @@ public class PP {
 	/**
 	 * @return See getStaticPP()
 	 */
-	public String getPP() {
-		return PP.getStaticPP();
+	public String getPP(String arg) {
+		return PP.getStaticPP(arg);
 	}
-	
+
 	/**
 	 * @return See addStaticPP()
 	 */

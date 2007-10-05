@@ -1,4 +1,4 @@
-require '../src-ruby/urban'
+require 'src-ruby/urban'
 require 'test/unit'
 
 class TestCalcs < Test::Unit::TestCase

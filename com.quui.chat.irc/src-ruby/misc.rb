@@ -1,4 +1,5 @@
 require 'java'
+require "hollala.jar"
 include_class "com.quui.chat.commands.PP"
 include_class "com.quui.chat.wordgame.WordGameScores"
 def init
@@ -14,7 +15,7 @@ def getPP(incoming)
 #    }
 #  end
   #["You might find it useful to ponder on these:#" + pp.getPP + "#" + pp.getPP + "#" + pp.getPP,nil]
-  ["You might find it useful to ponder on this:#" + pp.getPP,nil]
+  ["You might find it useful to ponder on this:#" + pp.getPP(incoming),nil]
 end
 def addPP(incoming)
 	if (incoming.strip=='')
