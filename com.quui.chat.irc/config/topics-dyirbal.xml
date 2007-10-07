@@ -9,8 +9,8 @@
     </chat-keys>
     <chat-answers>
       <chat-answer frequency="1">an expression of greeting</chat-answer>
-      <chat-answer frequency="1">hey is like hi</chat-answer>
       <chat-answer frequency="1">every morning they exchanged polite hellos</chat-answer>
+      <chat-answer frequency="1">hey is like hi</chat-answer>
       <chat-answer frequency="1">hi</chat-answer>
     </chat-answers>
   </chat-topic>
@@ -24,8 +24,8 @@
       <chat-answer frequency="1">indicating exactness or preciseness</chat-answer>
       <chat-answer frequency="1">exactly</chat-answer>
       <chat-answer frequency="1">it was just as he said--the jewel was gone</chat-answer>
-      <chat-answer frequency="1">it has just enough salt</chat-answer>
       <chat-answer frequency="1">he was doing precisely what she had told him to do</chat-answer>
+      <chat-answer frequency="1">it has just enough salt</chat-answer>
     </chat-answers>
   </chat-topic>
   <chat-topic name="a metric unit of length equal to 100 meters">
@@ -35,8 +35,8 @@
       <chat-key>hm</chat-key>
     </chat-keys>
     <chat-answers>
-      <chat-answer frequency="1">hm ok</chat-answer>
       <chat-answer frequency="1">hm</chat-answer>
+      <chat-answer frequency="1">hm ok</chat-answer>
       <chat-answer frequency="1">a metric unit of length equal to 100 meters</chat-answer>
     </chat-answers>
   </chat-topic>
@@ -61,13 +61,13 @@
     <chat-answers>
       <chat-answer frequency="1">a well-argued thesis</chat-answer>
       <chat-answer frequency="1">he slept well</chat-answer>
-      <chat-answer frequency="1">a task well done</chat-answer>
       <chat-answer frequency="1">a well-planned party</chat-answer>
+      <chat-answer frequency="1">a task well done</chat-answer>
       <chat-answer frequency="1">good</chat-answer>
       <chat-answer frequency="1">the party went well</chat-answer>
-      <chat-answer frequency="1">in a good or proper or satisfactory manner or to a high standard</chat-answer>
-      <chat-answer frequency="1">the children behaved well</chat-answer>
       <chat-answer frequency="1">the baby can walk pretty good</chat-answer>
+      <chat-answer frequency="1">the children behaved well</chat-answer>
+      <chat-answer frequency="1">in a good or proper or satisfactory manner or to a high standard</chat-answer>
       <chat-answer frequency="1">are you doing good</chat-answer>
     </chat-answers>
   </chat-topic>
@@ -93,8 +93,8 @@
       <chat-answer frequency="1">why  doesn\'t your husband di it, ?</chat-answer>
       <chat-answer frequency="1">use cautiously and frugally</chat-answer>
       <chat-answer frequency="1">conserve your energy for the ascent to the summit</chat-answer>
-      <chat-answer frequency="1">I try to economize my spare time</chat-answer>
       <chat-answer frequency="1">tighten one's belt</chat-answer>
+      <chat-answer frequency="1">I try to economize my spare time</chat-answer>
     </chat-answers>
   </chat-topic>
   <chat-topic name="negation of a word or group of words; &quot;he does not speak French&quot;; &quot;she is not going&quot;; &quot;they are not friends&quot;; &quot;not many&quot;; &quot;not much&quot;; &quot;not at all&quot;">
@@ -102,12 +102,12 @@
       <chat-key>not</chat-key>
     </chat-keys>
     <chat-answers>
-      <chat-answer frequency="1">he does not speak French</chat-answer>
       <chat-answer frequency="1">negation of a word or group of words</chat-answer>
+      <chat-answer frequency="1">he does not speak French</chat-answer>
       <chat-answer frequency="1">not at all</chat-answer>
       <chat-answer frequency="1">they are not friends</chat-answer>
-      <chat-answer frequency="1">not much</chat-answer>
       <chat-answer frequency="1">not many</chat-answer>
+      <chat-answer frequency="1">not much</chat-answer>
       <chat-answer frequency="1">she is not going</chat-answer>
       <chat-answer frequency="1">i  am not sure i understand that ...</chat-answer>
     </chat-answers>
@@ -142,8 +142,18 @@
     <chat-answers>
       <chat-answer frequency="1">know and comprehend the nature or meaning of</chat-answer>
       <chat-answer frequency="1">I understand what she means</chat-answer>
-      <chat-answer frequency="1">i  am not sure i understand that ...</chat-answer>
       <chat-answer frequency="1">She did not understand her husband</chat-answer>
+      <chat-answer frequency="1">i  am not sure i understand that ...</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="turn or become green; &quot;The trees are greening&quot;">
+    <chat-keys>
+      <chat-key>green</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">green</chat-answer>
+      <chat-answer frequency="1">turn or become green</chat-answer>
+      <chat-answer frequency="1">The trees are greening</chat-answer>
     </chat-answers>
   </chat-topic>
 </chat-map>

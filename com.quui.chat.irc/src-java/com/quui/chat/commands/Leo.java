@@ -9,6 +9,7 @@
  */
 package com.quui.chat.commands;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 /**
@@ -46,6 +47,12 @@ public class Leo {
             else
                 result = result + "\"" + changed + "\"" + " ";
         }
-        return result;
+        String string = result;
+		try {
+			string = new String(result.getBytes("UTF-8"));
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		return string;
     }
 }
