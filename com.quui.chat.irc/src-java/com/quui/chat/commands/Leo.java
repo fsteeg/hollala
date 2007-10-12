@@ -48,11 +48,11 @@ public class Leo {
                 result = result + "\"" + changed + "\"" + " ";
         }
         String string = result;
-		try {
-			string = new String(result.getBytes("UTF-8"));
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			string = new String(result.getBytes("UTF-8"));
+//		} catch (UnsupportedEncodingException e) {
+//			e.printStackTrace();
+//		}
 		return string;
     }
 }

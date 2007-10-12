@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chat-map>
+  <chat-topic name="droop, sink, or settle from or as if from pressure or loss of tautness">
+    <chat-keys>
+      <chat-key>sag</chat-key>
+      <chat-key>droop</chat-key>
+      <chat-key>swag</chat-key>
+      <chat-key>flag</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">flag</chat-answer>
+      <chat-answer frequency="1">sag  hallo zu susi, , wenn du magst</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="sag  hallo zu susi, , wenn du magst">
+    <chat-keys>
+      <chat-key>sag</chat-key>
+      <chat-key />
+      <chat-key>hallo</chat-key>
+      <chat-key>zu</chat-key>
+      <chat-key>susi,</chat-key>
+      <chat-key>,</chat-key>
+      <chat-key>wenn</chat-key>
+      <chat-key>du</chat-key>
+      <chat-key>magst</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">magst</chat-answer>
+      <chat-answer frequency="1">sag  hallo zu susi, , wenn du magst</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="evil storm god represented as a black bird">
+    <chat-keys>
+      <chat-key>zu</chat-key>
+      <chat-key>zubird</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">Zubird</chat-answer>
+      <chat-answer frequency="1">sag  hallo zu susi, , wenn du magst</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="sag  hallo zu susi, , wenn du magst">
+    <chat-keys>
+      <chat-key>sag</chat-key>
+      <chat-key />
+      <chat-key>hallo</chat-key>
+      <chat-key>zu</chat-key>
+      <chat-key>susi,</chat-key>
+      <chat-key>,</chat-key>
+      <chat-key>wenn</chat-key>
+      <chat-key>du</chat-key>
+      <chat-key>magst</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">magst</chat-answer>
+      <chat-answer frequency="1">sag  hallo zu susi, , wenn du magst</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="sag  hallo zu susi, , wenn du magst">
+    <chat-keys>
+      <chat-key>sag</chat-key>
+      <chat-key />
+      <chat-key>hallo</chat-key>
+      <chat-key>zu</chat-key>
+      <chat-key>susi,</chat-key>
+      <chat-key>,</chat-key>
+      <chat-key>wenn</chat-key>
+      <chat-key>du</chat-key>
+      <chat-key>magst</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">magst</chat-answer>
+      <chat-answer frequency="1">sag  hallo zu susi, , wenn du magst</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="sag  hallo zu susi, , wenn du magst">
+    <chat-keys>
+      <chat-key>sag</chat-key>
+      <chat-key />
+      <chat-key>hallo</chat-key>
+      <chat-key>zu</chat-key>
+      <chat-key>susi,</chat-key>
+      <chat-key>,</chat-key>
+      <chat-key>wenn</chat-key>
+      <chat-key>du</chat-key>
+      <chat-key>magst</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">magst</chat-answer>
+      <chat-answer frequency="1">sag  hallo zu susi, , wenn du magst</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="sag  hallo zu susi, , wenn du magst">
+    <chat-keys>
+      <chat-key>sag</chat-key>
+      <chat-key />
+      <chat-key>hallo</chat-key>
+      <chat-key>zu</chat-key>
+      <chat-key>susi,</chat-key>
+      <chat-key>,</chat-key>
+      <chat-key>wenn</chat-key>
+      <chat-key>du</chat-key>
+      <chat-key>magst</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">magst</chat-answer>
+      <chat-answer frequency="1">sag  hallo zu susi, , wenn du magst</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="sentence-initial expression of agreement">
+    <chat-keys>
+      <chat-key>fine</chat-key>
+      <chat-key>alright</chat-key>
+      <chat-key>ok</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">OK</chat-answer>
+      <chat-answer frequency="1">ok</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="grüß  schön">
+    <chat-keys>
+      <chat-key>grüß</chat-key>
+      <chat-key />
+      <chat-key>schön</chat-key>
+      <chat-key>azote</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">grüß  schön</chat-answer>
+      <chat-answer frequency="1">schön</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="ja">
+    <chat-keys>
+      <chat-key>ja</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="2">ja</chat-answer>
+    </chat-answers>
+  </chat-topic>
+</chat-map>
+

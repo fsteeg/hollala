@@ -242,10 +242,16 @@ public class Hollaka extends SuperBot {
     }
 
     private String execute(String method, String argument) {
+    	 String process = null;
         try {
-            String process;
             Object[] exec = rubyCaller.exec(method, argument);
-            process = (String) exec[0];
+            process= (String) exec[0];
+//            try {
+//				process = new String(( (String) exec[0]).getBytes("UTF8"));
+//			} catch (UnsupportedEncodingException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
             rubyIsDone = exec[1] == null;
             nextCommand = (String) exec[1];
             return process;

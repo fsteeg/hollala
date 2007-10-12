@@ -75,8 +75,8 @@ public class SuperBot {
         }
 
         try {
-			IRCir = new BufferedReader(new InputStreamReader(IRCis,"UTF8"));
-			IRCor = new BufferedWriter(new OutputStreamWriter(IRCos));
+			IRCir = new BufferedReader(new InputStreamReader(IRCis, "UTF8"));
+			IRCor = new BufferedWriter(new OutputStreamWriter(IRCos, "UTF8"));
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -105,7 +105,7 @@ public class SuperBot {
         // Log.logger.debug("[IRC] irc: '" + message + "'");
         System.out.println("[IRC] irc: '" + message + "'");
         try {
-            IRCor.write(new String(message.getBytes("UTF-8")));
+            IRCor.write(message);
             IRCor.newLine();
             IRCor.flush();
         } catch (IOException e) {
