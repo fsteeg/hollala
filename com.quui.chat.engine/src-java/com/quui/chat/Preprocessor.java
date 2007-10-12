@@ -104,7 +104,7 @@ public class Preprocessor {
         }
         message = "";
         for (int j = 0; j < toks.length; j++) {
-            message = (message + toks[j]).trim() + " ";
+            message = (message + toks[j].trim()).trim() + " ";
         }
         return message;
     }
