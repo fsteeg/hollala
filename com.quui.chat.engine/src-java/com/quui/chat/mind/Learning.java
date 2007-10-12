@@ -65,11 +65,11 @@ public class Learning {
         for (String name : tokens) {
             if (name.trim().equals(""))
                 throw new NullPointerException("Empty token!");
-            if (
+//            if (
             // TODO
-            mind.isWordNetEnabled && !WNLookup.isContentWord(name)
-                    || Mind.map.keySet().contains(name))
-                continue;
+//            mind.isWordNetEnabled && !WNLookup.isContentWord(name)
+//                    || Mind.map.keySet().contains(name))
+//                continue;
             // use wordnet for learning
             if (mind.isWordNetEnabled) {
                 result = learnFromWordNet(name, rawUserInput);
@@ -144,19 +144,19 @@ public class Learning {
             if (!topic.containsKey(key)) {
                 topic.addKey(key);
             }
-            if (key.indexOf("(") == -1 && key.indexOf("_") != -1) {
-                /*
-                 * learn the clean composed key as answer too, to trigger
-                 * conversation:
-                 */
-                key = key.replace('_', ' ');
-                topic.addAnswer(key);
-            }
+//            if (key.indexOf("(") == -1 && key.indexOf("_") != -1) {
+//                /*
+//                 * learn the clean composed key as answer too, to trigger
+//                 * conversation:
+//                 */
+//                key = key.replace('_', ' ');
+//                topic.addAnswer(key);
+//            }
         }
         // learn related words as keys
         learnRelatedWordsAsKeys(topic, key);
         // for every syn also learn cleaned definitions and uses
-        learnCleanedDefsAsAnswers(topic, synset);
+//        learnCleanedDefsAsAnswers(topic, synset);
         // a new topic should have at least two answers to no get
         // too obviously stuck
         if (topic.getAnswers().size() < 2) {
@@ -181,7 +181,7 @@ public class Learning {
                 topic.addKey(key);
             }
 
-            topic.addAnswer(key);
+//            topic.addAnswer(key);
         }
         // learn related words as keys
         learnRelatedWordsAsKeys(topic, key);
@@ -237,13 +237,13 @@ public class Learning {
      * @param synset
      *            The synsets whose defs should be learnend
      */
-    private void learnCleanedDefsAsAnswers(Topic topic, Synset synset) {
-        String[] defs = WNLookup.getDefsAsAnswers(synset);
-        for (int i = 0; i < defs.length; i++) {
-            Log.logger.debug("Learning answer: " + defs[i]);
-            topic.addAnswer(defs[i]);
-        }
-    }
+//    private void learnCleanedDefsAsAnswers(Topic topic, Synset synset) {
+//        String[] defs = WNLookup.getDefsAsAnswers(synset);
+//        for (int i = 0; i < defs.length; i++) {
+//            Log.logger.debug("Learning answer: " + defs[i]);
+//            topic.addAnswer(defs[i]);
+//        }
+//    }
 
     /**
      * Adds max 10 synonymes, hyperonymes (parents) and hyponyms (children) of
@@ -276,10 +276,10 @@ public class Learning {
         if (children.size() < 10) {
             for (int i = 0; i < children.size() && i < 10; i++) {
                 String c = children.get(i);
-                if (c.contains("_"))
-                    topic.addAnswer(c.replaceAll("_", " "));
-                if (c.contains("-"))
-                    topic.addAnswer(c.replaceAll("-", " "));
+//                if (c.contains("_"))
+//                    topic.addAnswer(c.replaceAll("_", " "));
+//                if (c.contains("-"))
+//                    topic.addAnswer(c.replaceAll("-", " "));
                 topic.addKey(c);
             }
         }

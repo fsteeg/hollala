@@ -63,7 +63,7 @@ public class Talk {
     public void talk() {
         try {
             BufferedReader in = new BufferedReader(new InputStreamReader(
-                    System.in, "UTF-8"));
+                    System.in, "UTF8"));
             String s;
             System.out.println();
             System.out.println();

@@ -87,8 +87,8 @@ public class Preprocessor {
      */
     static public String clean(String message, String nick) {
 
-        String[] toks = message.toLowerCase().split("[^a-zA-Z?!0-9']");
-        String[] nickToks = nick.toLowerCase().split("[^a-zA-Z]");
+        String[] toks = message.toLowerCase().split("[^\\p{L}?!']");
+        String[] nickToks = nick.toLowerCase().split("[^\\p{L}]");
         for (int j = 0; j < toks.length; j++) {
             for (int i = 0; i < nickToks.length; i++) {
                 int dist = StringUtils.getLevenshteinDistance(toks[j],
