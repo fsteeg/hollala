@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chat-map>
+  <chat-topic name="an expression of greeting; &quot;every morning they exchanged polite hellos&quot;">
+    <chat-keys>
+      <chat-key>hello</chat-key>
+      <chat-key>hullo</chat-key>
+      <chat-key>hi</chat-key>
+      <chat-key>howdy</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">an expression of greeting</chat-answer>
+      <chat-answer frequency="1">every morning they exchanged polite hellos</chat-answer>
+      <chat-answer frequency="1">hey is like hi</chat-answer>
+      <chat-answer frequency="1">hi</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="indicating exactness or preciseness; &quot;he was doing precisely (or exactly) what she had told him to do&quot;; &quot;it was just as he said--the jewel was gone&quot;; &quot;it has just enough salt&quot;">
+    <chat-keys>
+      <chat-key>precisely</chat-key>
+      <chat-key>exactly</chat-key>
+      <chat-key>just</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">indicating exactness or preciseness</chat-answer>
+      <chat-answer frequency="1">exactly</chat-answer>
+      <chat-answer frequency="1">it was just as he said--the jewel was gone</chat-answer>
+      <chat-answer frequency="1">he was doing precisely what she had told him to do</chat-answer>
+      <chat-answer frequency="1">it has just enough salt</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="a metric unit of length equal to 100 meters">
+    <chat-keys>
+      <chat-key>hectometer</chat-key>
+      <chat-key>hectometre</chat-key>
+      <chat-key>hm</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">hm</chat-answer>
+      <chat-answer frequency="1">hm ok</chat-answer>
+      <chat-answer frequency="1">a metric unit of length equal to 100 meters</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="sentence-initial expression of agreement">
+    <chat-keys>
+      <chat-key>fine</chat-key>
+      <chat-key>alright</chat-key>
+      <chat-key>ok</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">very well</chat-answer>
+      <chat-answer frequency="1">hm ok</chat-answer>
+      <chat-answer frequency="1">sentence-initial expression of agreement</chat-answer>
+      <chat-answer frequency="1">all right</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="(often used as a combining form) in a good or proper or satisfactory manner or to a high standard (`good' is a nonstandard dialectal variant for `well'); &quot;the children behaved well&quot;; &quot;a task well done&quot;; &quot;the party went well&quot;; &quot;he slept well&quot;; &quot;a well-argued thesis&quot;; &quot;a well-planned party&quot;; &quot;the baby can walk pretty good&quot;">
+    <chat-keys>
+      <chat-key>well</chat-key>
+      <chat-key>good</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">a well-argued thesis</chat-answer>
+      <chat-answer frequency="1">he slept well</chat-answer>
+      <chat-answer frequency="1">a well-planned party</chat-answer>
+      <chat-answer frequency="1">a task well done</chat-answer>
+      <chat-answer frequency="1">good</chat-answer>
+      <chat-answer frequency="1">the party went well</chat-answer>
+      <chat-answer frequency="1">the baby can walk pretty good</chat-answer>
+      <chat-answer frequency="1">the children behaved well</chat-answer>
+      <chat-answer frequency="1">in a good or proper or satisfactory manner or to a high standard</chat-answer>
+      <chat-answer frequency="1">are you doing good</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="prepare a hot meal; &quot;My husband doesn't cook&quot;">
+    <chat-keys>
+      <chat-key>cook</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">what's  cooking?</chat-answer>
+      <chat-answer frequency="1">My husband doesn't cook</chat-answer>
+      <chat-answer frequency="1">prepare a hot meal</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="use cautiously and frugally; &quot;I try to economize my spare time&quot;; &quot;conserve your energy for the ascent to the summit&quot;">
+    <chat-keys>
+      <chat-key>conserve</chat-key>
+      <chat-key>husband</chat-key>
+      <chat-key>economize</chat-key>
+      <chat-key>economise</chat-key>
+      <chat-key>retrench</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">why  doesn\'t your husband di it, ?</chat-answer>
+      <chat-answer frequency="1">use cautiously and frugally</chat-answer>
+      <chat-answer frequency="1">conserve your energy for the ascent to the summit</chat-answer>
+      <chat-answer frequency="1">tighten one's belt</chat-answer>
+      <chat-answer frequency="1">I try to economize my spare time</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="negation of a word or group of words; &quot;he does not speak French&quot;; &quot;she is not going&quot;; &quot;they are not friends&quot;; &quot;not many&quot;; &quot;not much&quot;; &quot;not at all&quot;">
+    <chat-keys>
+      <chat-key>not</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">negation of a word or group of words</chat-answer>
+      <chat-answer frequency="1">he does not speak French</chat-answer>
+      <chat-answer frequency="1">not at all</chat-answer>
+      <chat-answer frequency="1">they are not friends</chat-answer>
+      <chat-answer frequency="1">not many</chat-answer>
+      <chat-answer frequency="1">not much</chat-answer>
+      <chat-answer frequency="1">she is not going</chat-answer>
+      <chat-answer frequency="1">i  am not sure i understand that ...</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="definitely or positively (`sure' is sometimes used informally for `surely'); &quot;the results are surely encouraging&quot;; &quot;she certainly is a hard worker&quot;; &quot;it's going to be a good day for sure&quot;; &quot;they are coming, for certain&quot;; &quot;they thought he had been killed sure enough&quot;; &quot;he'll win sure as shooting&quot;; &quot;they sure smell good&quot;; &quot;sure he'll come&quot;">
+    <chat-keys>
+      <chat-key>surely</chat-key>
+      <chat-key>certainly</chat-key>
+      <chat-key>sure</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">the results are surely encouraging</chat-answer>
+      <chat-answer frequency="1">definitely or positively</chat-answer>
+      <chat-answer frequency="1">for sure</chat-answer>
+      <chat-answer frequency="1">sure enough</chat-answer>
+      <chat-answer frequency="1">she certainly is a hard worker</chat-answer>
+      <chat-answer frequency="1">i  am not sure i understand that ...</chat-answer>
+      <chat-answer frequency="1">sure as shooting</chat-answer>
+      <chat-answer frequency="1">they thought he had been killed sure enough</chat-answer>
+      <chat-answer frequency="1">for certain</chat-answer>
+      <chat-answer frequency="1">he'll win sure as shooting</chat-answer>
+      <chat-answer frequency="1">sure he'll come</chat-answer>
+      <chat-answer frequency="1">they sure smell good</chat-answer>
+      <chat-answer frequency="1">they are coming, for certain</chat-answer>
+      <chat-answer frequency="1">it's going to be a good day for sure</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="know and comprehend the nature or meaning of; &quot;She did not understand her husband&quot;; &quot;I understand what she means&quot;">
+    <chat-keys>
+      <chat-key>understand</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">know and comprehend the nature or meaning of</chat-answer>
+      <chat-answer frequency="1">I understand what she means</chat-answer>
+      <chat-answer frequency="1">She did not understand her husband</chat-answer>
+      <chat-answer frequency="1">i  am not sure i understand that ...</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="turn or become green; &quot;The trees are greening&quot;">
+    <chat-keys>
+      <chat-key>green</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">green</chat-answer>
+      <chat-answer frequency="1">turn or become green</chat-answer>
+      <chat-answer frequency="1">The trees are greening</chat-answer>
+    </chat-answers>
+  </chat-topic>
+</chat-map>
+

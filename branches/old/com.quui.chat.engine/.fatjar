@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Thu Jun 01 04:57:40 CEST 2006
+onejar.license.required=true
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=hollala.jar
+manifest.mergeall=true
+manifest.mainclass=com.quui.chat.ui.irc.RunBots
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=
+includes=

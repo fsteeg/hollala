@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chat-map>
+  <chat-topic name="in no way; to no degree; &quot;he looks nothing like his father&quot;">
+    <chat-keys>
+      <chat-key>nothing</chat-key>
+      <chat-key>[ none ]</chat-key>
+      <chat-key>nihil</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">sweet Fanny Adams</chat-answer>
+      <chat-answer frequency="1">yo</chat-answer>
+      <chat-answer frequency="1">he looks nothing like his father</chat-answer>
+      <chat-answer frequency="1">in no way</chat-answer>
+      <chat-answer frequency="1">to no degree</chat-answer>
+      <chat-answer frequency="1">fuck all</chat-answer>
+      <chat-answer frequency="1">bugger all</chat-answer>
+      <chat-answer frequency="1">Fanny Adams</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="an expression of greeting; &quot;every morning they exchanged polite hellos&quot;">
+    <chat-keys>
+      <chat-key>hello</chat-key>
+      <chat-key>hullo</chat-key>
+      <chat-key>hi</chat-key>
+      <chat-key>howdy</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">an expression of greeting</chat-answer>
+      <chat-answer frequency="1">hello there</chat-answer>
+      <chat-answer frequency="1">every morning they exchanged polite hellos</chat-answer>
+      <chat-answer frequency="1">hi</chat-answer>
+    </chat-answers>
+  </chat-topic>
+</chat-map>
+

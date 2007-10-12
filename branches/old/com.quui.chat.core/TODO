@@ -1,0 +1,11 @@
+- Add all the wordnet goodies via ruby: synonymes, opposites, more?
+- Make waiting time a property in hollala.properties
+- use modules or classes for the ruby scripts, for naming methods the same...
+- name as trigger (DONE)
+- auto rejoin (DONE)
+- tighter ruby-bot integration (DONE: madlibs.rb and rot.rb)
+- rehashing on request only (DONE: "!rehash", provisorically)
+- antworten auf rehash (priv)
+- me-action nach madlibs
+- add madlibs, use from file
+- gcount mit LCD Zahlen
