@@ -16,6 +16,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.net.Socket;
 
 /**
@@ -73,11 +74,13 @@ public class SuperBot {
             System.exit(0);
         }
 
-        IRCir = new BufferedReader(new InputStreamReader(IRCis));
-        IRCor = new BufferedWriter(new OutputStreamWriter(IRCos));
-
+        try {
+			IRCir = new BufferedReader(new InputStreamReader(IRCis,"UTF8"));
+			IRCor = new BufferedWriter(new OutputStreamWriter(IRCos));
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
         return;
-
     }
 
     /**
@@ -102,7 +105,7 @@ public class SuperBot {
         // Log.logger.debug("[IRC] irc: '" + message + "'");
         System.out.println("[IRC] irc: '" + message + "'");
         try {
-            IRCor.write(new String(message.getBytes(), "UTF-8"));
+            IRCor.write(new String(message.getBytes("UTF-8")));
             IRCor.newLine();
             IRCor.flush();
         } catch (IOException e) {

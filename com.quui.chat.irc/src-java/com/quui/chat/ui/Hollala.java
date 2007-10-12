@@ -150,10 +150,10 @@ public class Hollala extends SuperBot {
             return;
         }
         // first filter: ascii - to filter arabic stuff and such.
-        if (Preprocessor.containsNonAscii(message)) {
-            Log.logger.debug("Skipping because of non-ascii: " + message);
-            return;
-        }
+//        if (Preprocessor.containsNonAscii(message)) {
+//            Log.logger.debug("Skipping because of non-ascii: " + message);
+//            return;
+//        }
         boolean learn = toBot || listen.contains(sender.toLowerCase());
         String orig = message;
         for (String nick : users) {

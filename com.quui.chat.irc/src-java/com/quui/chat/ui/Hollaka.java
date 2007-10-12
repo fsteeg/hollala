@@ -11,6 +11,10 @@ package com.quui.chat.ui;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Properties;
 
 import com.quui.chat.commands.RubyCaller;
@@ -26,6 +30,8 @@ import com.quui.chat.wordgame.WordGameScores;
  * @author Fabian Steeg (fsteeg)
  */
 public class Hollaka extends SuperBot {
+	
+	private List<String> listen;
 
     private String name, description, restMessage;
 
@@ -83,6 +89,7 @@ public class Hollaka extends SuperBot {
         this.channels = properties.getProperty("channels").split(",");
         this.description = properties.getProperty("description");
         this.restMessage = properties.getProperty("more");
+        this.listen = new LinkedList<String>(Arrays.asList(properties.getProperty("listen").split(",")));
     }
 
     private void initWordScoreProperties() {
@@ -111,6 +118,11 @@ public class Hollaka extends SuperBot {
      * Process a private message
      */
     protected void srv_privmsg(String sender, String message, String channel) {
+//    	try {
+//			message = new String(message.getBytes(),"utf-8");
+//		} catch (UnsupportedEncodingException e1) {
+//			e1.printStackTrace();
+//		}
         System.out.println("Message: " + message + " from: " + sender
                 + " on channel: " + channel);
         System.out.println("Word is running: " + wordGameRunning
@@ -144,7 +156,7 @@ public class Hollaka extends SuperBot {
             return;
         }
         if (message.toLowerCase().contains(this.name.toLowerCase())
-                || message.equalsIgnoreCase("!help") || !rubyIsDone) {
+                || message.equalsIgnoreCase("!help") || !rubyIsDone || listen.contains(sender)) {
             if (message.equalsIgnoreCase("!help"))
                 message = name + " " + message.substring(1);
             String process = "";

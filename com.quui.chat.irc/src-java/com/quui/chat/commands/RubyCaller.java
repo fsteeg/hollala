@@ -134,7 +134,7 @@ public class RubyCaller {
 		String r = null;
 		try {
 			//begin with this:\u0002 for bold output
-			r = new String("Use my name plus: ".getBytes(), "UTF-8");
+			r = new String("Use my name plus: ".getBytes(), "UTF8");
 			System.out.println("STRING: " + r);
 			// ruby-commands
 			for (String s : map.keySet()) {

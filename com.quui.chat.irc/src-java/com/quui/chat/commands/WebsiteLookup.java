@@ -44,7 +44,7 @@ public class WebsiteLookup {
         if (encoding == null) {
             System.out
                     .println("Website defines no encoding! Please supply an encoding in constructor \"WebsiteLookup(adress,encoding)\". Trying UTF-8 for now.");
-            encoding = "UTF-8";
+            encoding = "UTF8";
         }
         this.adress = adress;
         this.encoding = encoding;
