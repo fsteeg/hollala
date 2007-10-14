@@ -87,7 +87,7 @@ public class Preprocessor {
      */
     static public String clean(String message, String nick) {
 
-        String[] toks = message.toLowerCase().split("[^\\p{L}?!']");
+        String[] toks = message.toLowerCase().split("[^?!'\\p{L}]");
         String[] nickToks = nick.toLowerCase().split("[^\\p{L}]");
         for (int j = 0; j < toks.length; j++) {
             for (int i = 0; i < nickToks.length; i++) {
@@ -106,7 +106,7 @@ public class Preprocessor {
         for (int j = 0; j < toks.length; j++) {
             message = (message + toks[j].trim()).trim() + " ";
         }
-        return message;
+        return message.trim();
     }
 
     /**
