@@ -1,141 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <chat-map>
-  <chat-topic name="droop, sink, or settle from or as if from pressure or loss of tautness">
+  <chat-topic name="yo dude what 's up?">
     <chat-keys>
-      <chat-key>sag</chat-key>
-      <chat-key>droop</chat-key>
-      <chat-key>swag</chat-key>
-      <chat-key>flag</chat-key>
+      <chat-key>yo</chat-key>
+      <chat-key>dude</chat-key>
+      <chat-key>what</chat-key>
+      <chat-key>'s</chat-key>
+      <chat-key>up?</chat-key>
     </chat-keys>
     <chat-answers>
-      <chat-answer frequency="1">flag</chat-answer>
-      <chat-answer frequency="1">sag  hallo zu susi, , wenn du magst</chat-answer>
+      <chat-answer frequency="1">yo dude what 's up?</chat-answer>
+      <chat-answer frequency="1">up?</chat-answer>
     </chat-answers>
   </chat-topic>
-  <chat-topic name="sag  hallo zu susi, , wenn du magst">
+  <chat-topic name="a man who is much concerned with his dress and appearance">
     <chat-keys>
-      <chat-key>sag</chat-key>
-      <chat-key />
-      <chat-key>hallo</chat-key>
-      <chat-key>zu</chat-key>
-      <chat-key>susi,</chat-key>
-      <chat-key>,</chat-key>
-      <chat-key>wenn</chat-key>
-      <chat-key>du</chat-key>
-      <chat-key>magst</chat-key>
+      <chat-key>dandy</chat-key>
+      <chat-key>dude</chat-key>
+      <chat-key>fop</chat-key>
+      <chat-key>gallant</chat-key>
+      <chat-key>sheik</chat-key>
+      <chat-key>beau</chat-key>
+      <chat-key>swell</chat-key>
+      <chat-key>clotheshorse</chat-key>
+      <chat-key>coxcomb</chat-key>
+      <chat-key>cockscomb</chat-key>
+      <chat-key>macaroni</chat-key>
+      <chat-key>brummell</chat-key>
     </chat-keys>
     <chat-answers>
-      <chat-answer frequency="1">magst</chat-answer>
-      <chat-answer frequency="1">sag  hallo zu susi, , wenn du magst</chat-answer>
+      <chat-answer frequency="1">yo dude what 's up?</chat-answer>
+      <chat-answer frequency="1">dude</chat-answer>
+      <chat-answer frequency="1">clotheshorse</chat-answer>
     </chat-answers>
   </chat-topic>
-  <chat-topic name="evil storm god represented as a black bird">
+  <chat-topic name="spatially or metaphorically from a lower to a higher position; &quot;look up!&quot;; &quot;the music surged up&quot;; &quot;the fragments flew upwards&quot;; &quot;prices soared upwards&quot;; &quot;upwardly mobile&quot;">
     <chat-keys>
-      <chat-key>zu</chat-key>
-      <chat-key>zubird</chat-key>
+      <chat-key>up</chat-key>
+      <chat-key>upwards</chat-key>
+      <chat-key>upward</chat-key>
+      <chat-key>upwardly</chat-key>
     </chat-keys>
     <chat-answers>
-      <chat-answer frequency="1">Zubird</chat-answer>
-      <chat-answer frequency="1">sag  hallo zu susi, , wenn du magst</chat-answer>
+      <chat-answer frequency="1">yo dude what 's up?</chat-answer>
+      <chat-answer frequency="1">upwardly</chat-answer>
     </chat-answers>
   </chat-topic>
-  <chat-topic name="sag  hallo zu susi, , wenn du magst">
+  <chat-topic name="no ruhe">
     <chat-keys>
-      <chat-key>sag</chat-key>
-      <chat-key />
-      <chat-key>hallo</chat-key>
-      <chat-key>zu</chat-key>
-      <chat-key>susi,</chat-key>
-      <chat-key>,</chat-key>
-      <chat-key>wenn</chat-key>
-      <chat-key>du</chat-key>
-      <chat-key>magst</chat-key>
+      <chat-key>no</chat-key>
+      <chat-key>ruhe</chat-key>
     </chat-keys>
     <chat-answers>
-      <chat-answer frequency="1">magst</chat-answer>
-      <chat-answer frequency="1">sag  hallo zu susi, , wenn du magst</chat-answer>
+      <chat-answer frequency="1">no ruhe</chat-answer>
+      <chat-answer frequency="1">ruhe</chat-answer>
     </chat-answers>
   </chat-topic>
-  <chat-topic name="sag  hallo zu susi, , wenn du magst">
+  <chat-topic name="a man who is much concerned with his dress and appearance">
     <chat-keys>
-      <chat-key>sag</chat-key>
-      <chat-key />
-      <chat-key>hallo</chat-key>
-      <chat-key>zu</chat-key>
-      <chat-key>susi,</chat-key>
-      <chat-key>,</chat-key>
-      <chat-key>wenn</chat-key>
-      <chat-key>du</chat-key>
-      <chat-key>magst</chat-key>
+      <chat-key>dandy</chat-key>
+      <chat-key>dude</chat-key>
+      <chat-key>fop</chat-key>
+      <chat-key>gallant</chat-key>
+      <chat-key>sheik</chat-key>
+      <chat-key>beau</chat-key>
+      <chat-key>swell</chat-key>
+      <chat-key>clotheshorse</chat-key>
+      <chat-key>coxcomb</chat-key>
+      <chat-key>cockscomb</chat-key>
+      <chat-key>macaroni</chat-key>
+      <chat-key>brummell</chat-key>
     </chat-keys>
     <chat-answers>
-      <chat-answer frequency="1">magst</chat-answer>
-      <chat-answer frequency="1">sag  hallo zu susi, , wenn du magst</chat-answer>
-    </chat-answers>
-  </chat-topic>
-  <chat-topic name="sag  hallo zu susi, , wenn du magst">
-    <chat-keys>
-      <chat-key>sag</chat-key>
-      <chat-key />
-      <chat-key>hallo</chat-key>
-      <chat-key>zu</chat-key>
-      <chat-key>susi,</chat-key>
-      <chat-key>,</chat-key>
-      <chat-key>wenn</chat-key>
-      <chat-key>du</chat-key>
-      <chat-key>magst</chat-key>
-    </chat-keys>
-    <chat-answers>
-      <chat-answer frequency="1">magst</chat-answer>
-      <chat-answer frequency="1">sag  hallo zu susi, , wenn du magst</chat-answer>
-    </chat-answers>
-  </chat-topic>
-  <chat-topic name="sag  hallo zu susi, , wenn du magst">
-    <chat-keys>
-      <chat-key>sag</chat-key>
-      <chat-key />
-      <chat-key>hallo</chat-key>
-      <chat-key>zu</chat-key>
-      <chat-key>susi,</chat-key>
-      <chat-key>,</chat-key>
-      <chat-key>wenn</chat-key>
-      <chat-key>du</chat-key>
-      <chat-key>magst</chat-key>
-    </chat-keys>
-    <chat-answers>
-      <chat-answer frequency="1">magst</chat-answer>
-      <chat-answer frequency="1">sag  hallo zu susi, , wenn du magst</chat-answer>
-    </chat-answers>
-  </chat-topic>
-  <chat-topic name="sentence-initial expression of agreement">
-    <chat-keys>
-      <chat-key>fine</chat-key>
-      <chat-key>alright</chat-key>
-      <chat-key>ok</chat-key>
-    </chat-keys>
-    <chat-answers>
-      <chat-answer frequency="1">OK</chat-answer>
-      <chat-answer frequency="1">ok</chat-answer>
-    </chat-answers>
-  </chat-topic>
-  <chat-topic name="grüß  schön">
-    <chat-keys>
-      <chat-key>grüß</chat-key>
-      <chat-key />
-      <chat-key>schön</chat-key>
-      <chat-key>azote</chat-key>
-    </chat-keys>
-    <chat-answers>
-      <chat-answer frequency="1">grüß  schön</chat-answer>
-      <chat-answer frequency="1">schön</chat-answer>
-    </chat-answers>
-  </chat-topic>
-  <chat-topic name="ja">
-    <chat-keys>
-      <chat-key>ja</chat-key>
-    </chat-keys>
-    <chat-answers>
-      <chat-answer frequency="2">ja</chat-answer>
+      <chat-answer frequency="1">dude</chat-answer>
+      <chat-answer frequency="1">clotheshorse</chat-answer>
     </chat-answers>
   </chat-topic>
 </chat-map>

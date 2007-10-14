@@ -96,25 +96,25 @@ public class RubyCaller {
 	 * @return Return the result of the Ruby program mapped to the command. (Or
 	 *         an error message)
 	 */
-	public Object[] exec(String command, String param) {
+	public Object[] exec(String command, String oparam) {
 		// escape the ruby string literal markers: 'i\'m a ruby string'
-		param = param.replaceAll("'", "\\\\'");
+		String rparam = oparam.replaceAll("'", "\\\\'");
 		if (command.equals("help"))
 			return new Object[] { returnHelp(), null };
 		if (!map.keySet().contains(command)) {
-			System.err.println("Command not found: " + command + " " + param);
+			System.err.println("Command not found: " + command + " " + oparam);
 			return new Object[] {
-					externalSolution.solve(command + " " + param), null };
+					externalSolution.solve(command + " " + oparam), null };
 		}
 		String method = map.get(command);
 		if (method == null)
 			method = command;
 		System.out.println("About to exec: " + command + " with param: "
-				+ param + " with method: " + method);
+				+ rparam + " with method: " + method);
 		try {
 			if (method.equals(""))
 				return new Object[] { returnHelp(), null };
-			String call = method + "('" + param.trim() + "')";
+			String call = method + "('" + rparam.trim() + "')";
 			System.out.println("Call: " + call);
 			IRubyObject evalScript = runtime.evalScript(call);
 			return ((RubyArray) evalScript).toArray();
