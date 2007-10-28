@@ -30,6 +30,8 @@ public class GlobalProperties {
 
     private int millis;
 
+	private boolean learnFromWN;
+
     /**
      * The default constructor is private because this is an implementation of
      * the Singleton Pattern.
@@ -46,6 +48,7 @@ public class GlobalProperties {
             commandPrefix = p.getProperty("command");
             rubyHome = p.getProperty("ruby");
             millis = Integer.parseInt(p.getProperty("millis"));
+            learnFromWN = p.getProperty("learn_from_wn").equals("yes");
             new Talk("config", "topics-test.xml", wnLocation, logLocation);
         } catch (Exception e) {
             e.printStackTrace();
@@ -88,4 +91,8 @@ public class GlobalProperties {
         // TODO Auto-generated method stub
         return millis;
     }
+
+	public boolean getLearnFromWN() {
+		return learnFromWN;
+	}
 }

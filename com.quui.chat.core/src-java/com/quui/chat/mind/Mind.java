@@ -42,7 +42,7 @@ public class Mind {
 
     private Vector<String> answerDummies;
 
-    protected static Map<String, Vector<Integer>> map;
+    protected static Map<String, Vector<Integer>> topicsIndices;
 
     public String lastAnswer = null;
 
@@ -75,7 +75,7 @@ public class Mind {
         this.preprocessor = new Preprocessor(this.isWordNetEnabled,
                 this.stopwords);
         Mind.topics = topics;
-        Mind.map = map;
+        Mind.topicsIndices = map;
         this.answerDummies = answerDummies;
     }
 
@@ -220,7 +220,7 @@ public class Mind {
         long start = System.currentTimeMillis();
         for (String recentToken : tokens) {
             Vector<Topic> candidateTopics = new Vector<Topic>();
-            Vector<Integer> candidateTopicsIndices = Mind.map.get(recentToken);
+            Vector<Integer> candidateTopicsIndices = Mind.topicsIndices.get(recentToken);
             start = System.currentTimeMillis();
             if (candidateTopicsIndices != null)
                 for (Integer integer : candidateTopicsIndices) {
@@ -366,7 +366,7 @@ public class Mind {
      * @return The Topic[] containing the topics found
      */
     public static Topic[] findTopics(String inputWord) {
-        Vector topics = (Vector) map.get(inputWord);
+        Vector topics = (Vector) topicsIndices.get(inputWord);
         if (topics == null) {
             return null;
         }
@@ -405,7 +405,7 @@ public class Mind {
      * @return The mapping of keys to topic-indices
      */
     public Map<String, Vector<Integer>> getMap() {
-        return Mind.map;
+        return Mind.topicsIndices;
     }
 
     /**
@@ -425,7 +425,7 @@ public class Mind {
             throws ParserConfigurationException {
         try {
             MapToDOM d = new MapToDOM();
-            Document dom = d.createDOM(map, topics);
+            Document dom = d.createDOM(topicsIndices, topics);
             String loc = topicFileName;
             FileWriter out = new FileWriter(loc);
             XMLOutputter outp = new XMLOutputter();

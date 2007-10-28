@@ -140,7 +140,7 @@ public class Topic implements Serializable, Comparable {
 
         Random randomGen = new Random();
         /*
-         * generate a vector with dublicate answers for answers with frequencies
+         * generate a vector with duplicate answers for answers with frequencies
          * higher than 1:
          */
         Vector<String> v = new Vector<String>();
