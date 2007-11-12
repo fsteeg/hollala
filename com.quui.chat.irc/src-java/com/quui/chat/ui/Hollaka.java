@@ -210,6 +210,7 @@ public class Hollaka extends SuperBot {
             int i = 0;
             String[] split = process.split("#");
             for (String m : split) {
+            	m=m.trim();
                 // if(m.startsWith("["))
                 // continue;
                 // FIXME
