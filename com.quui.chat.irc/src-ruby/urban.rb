@@ -4,7 +4,7 @@ require 'cgi'
 include_class "com.quui.chat.commands.WebsiteLookup"
 
 def init
-  {"urban"=>"doUrban"}
+  {"define"=>"doUrban"}
 end
 def doUrban(incoming)
   if (incoming.strip=='')

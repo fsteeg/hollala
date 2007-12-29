@@ -5,8 +5,8 @@ import com.quui.chat.commands.ExternalSolution;
 
 public class HollalaSolution extends ExternalSolution {
 
-	private Hollala hollala;
-	private String name;
+	private final Hollala hollala;
+	private final String name;
 
 	public HollalaSolution(String name) {
 		this.hollala = new Hollala("config/hollala.properties");
@@ -17,6 +17,6 @@ public class HollalaSolution extends ExternalSolution {
 	public String solve(String in) {
 		in = in.toLowerCase().trim();
 		in = Preprocessor.clean(in, name.toLowerCase());
-		return hollala.converse(null, "susi", in, true);
+		return hollala.converse(null, "dude", in, true);
 	}
 }

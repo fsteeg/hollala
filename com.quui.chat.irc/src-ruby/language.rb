@@ -4,7 +4,7 @@ include_class "com.quui.chat.commands.Babelfish"
 include_class "com.quui.chat.mind.wn.WNLookup"
 def init
   {"leo" => "doLeo", "babel" => "doBabel", "translate" => "doBabel", 
-  "stem" => "doStem", "define" => "doDefine"}
+  "stem" => "doStem", "wn" => "doDefine"}
 end
 def doLeo(incoming)
   if (incoming.length == 0)
@@ -28,7 +28,11 @@ def doDefine(incoming)
     ["Usage: define <word-to-define>",nil]
   else
     r = WNLookup.new.getDefString(incoming)
-    ["Definitions for \"#{incoming}\":##{r}",nil]
+	res = "Definitions for \"#{incoming}\":##{r}";
+	if(r.strip=='')
+		res = 'No idea!'
+	end	
+    [res,nil]
   end
 end
 def doStem(incoming)

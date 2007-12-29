@@ -10,6 +10,7 @@
     </chat-keys>
     <chat-answers>
       <chat-answer frequency="1">yo dude what 's up?</chat-answer>
+      <chat-answer frequency="1">yo</chat-answer>
       <chat-answer frequency="1">up?</chat-answer>
     </chat-answers>
   </chat-topic>
@@ -43,6 +44,7 @@
     </chat-keys>
     <chat-answers>
       <chat-answer frequency="1">yo dude what 's up?</chat-answer>
+      <chat-answer frequency="1">shut up and listen to what i ve got to say!</chat-answer>
       <chat-answer frequency="1">upwardly</chat-answer>
     </chat-answers>
   </chat-topic>
@@ -52,8 +54,237 @@
       <chat-key>ruhe</chat-key>
     </chat-keys>
     <chat-answers>
-      <chat-answer frequency="1">no ruhe</chat-answer>
       <chat-answer frequency="1">ruhe</chat-answer>
+      <chat-answer frequency="1">no ruhe</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="a man who is much concerned with his dress and appearance">
+    <chat-keys>
+      <chat-key>dandy</chat-key>
+      <chat-key>dude</chat-key>
+      <chat-key>fop</chat-key>
+      <chat-key>gallant</chat-key>
+      <chat-key>sheik</chat-key>
+      <chat-key>beau</chat-key>
+      <chat-key>swell</chat-key>
+      <chat-key>clotheshorse</chat-key>
+      <chat-key>coxcomb</chat-key>
+      <chat-key>cockscomb</chat-key>
+      <chat-key>macaroni</chat-key>
+      <chat-key>brummell</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="2">dude</chat-answer>
+      <chat-answer frequency="1">clotheshorse</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="yo">
+    <chat-keys>
+      <chat-key>yo</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="2">yo</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="spatially or metaphorically from a lower to a higher position; &quot;look up!&quot;; &quot;the music surged up&quot;; &quot;the fragments flew upwards&quot;; &quot;prices soared upwards&quot;; &quot;upwardly mobile&quot;">
+    <chat-keys>
+      <chat-key>up</chat-key>
+      <chat-key>upwards</chat-key>
+      <chat-key>upward</chat-key>
+      <chat-key>upwardly</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">shut up and listen to what i ve got to say!</chat-answer>
+      <chat-answer frequency="1">upwardly</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="hear with intention; &quot;Listen to the sound of this cello&quot;">
+    <chat-keys>
+      <chat-key>listen</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">shut up and listen to what i ve got to say!</chat-answer>
+      <chat-answer frequency="1">listen</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="shut up and listen to what i ve got to say!">
+    <chat-keys>
+      <chat-key>shut</chat-key>
+      <chat-key>up</chat-key>
+      <chat-key>and</chat-key>
+      <chat-key>listen</chat-key>
+      <chat-key>to</chat-key>
+      <chat-key>what</chat-key>
+      <chat-key>i</chat-key>
+      <chat-key>ve</chat-key>
+      <chat-key>got</chat-key>
+      <chat-key>say!</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">shut up and listen to what i ve got to say!</chat-answer>
+      <chat-answer frequency="1">say!</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="come into the possession of something concrete or abstract; &quot;She got a lot of paintings from her uncle&quot;; &quot;They acquired a new pet&quot;; &quot;Get your results the next day&quot;; &quot;Get permission to take a few days off from work&quot;">
+    <chat-keys>
+      <chat-key>get</chat-key>
+      <chat-key>acquire</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">acquire</chat-answer>
+      <chat-answer frequency="1">i dont get it</chat-answer>
+      <chat-answer frequency="1">shut up and listen to what i ve got to say!</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="express in words; &quot;He said that he wanted to marry her&quot;; &quot;tell me what is bothering you&quot;; &quot;state your opinion&quot;; &quot;state your name&quot;">
+    <chat-keys>
+      <chat-key>state</chat-key>
+      <chat-key>say</chat-key>
+      <chat-key>tell</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">tell</chat-answer>
+      <chat-answer frequency="1">shut up and listen to what i ve got to say!</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="a man who is much concerned with his dress and appearance">
+    <chat-keys>
+      <chat-key>dandy</chat-key>
+      <chat-key>dude</chat-key>
+      <chat-key>fop</chat-key>
+      <chat-key>gallant</chat-key>
+      <chat-key>sheik</chat-key>
+      <chat-key>beau</chat-key>
+      <chat-key>swell</chat-key>
+      <chat-key>clotheshorse</chat-key>
+      <chat-key>coxcomb</chat-key>
+      <chat-key>cockscomb</chat-key>
+      <chat-key>macaroni</chat-key>
+      <chat-key>brummell</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="2">dude</chat-answer>
+      <chat-answer frequency="1">clotheshorse</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="hey">
+    <chat-keys>
+      <chat-key>hey</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="2">hey</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="an expression of greeting; &quot;every morning they exchanged polite hellos&quot;">
+    <chat-keys>
+      <chat-key>hello</chat-key>
+      <chat-key>hullo</chat-key>
+      <chat-key>hi</chat-key>
+      <chat-key>howdy</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="2">hi</chat-answer>
+      <chat-answer frequency="1">how-do-you-do</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="an expression of greeting; &quot;every morning they exchanged polite hellos&quot;">
+    <chat-keys>
+      <chat-key>hello</chat-key>
+      <chat-key>hullo</chat-key>
+      <chat-key>hi</chat-key>
+      <chat-key>howdy</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="2">hi</chat-answer>
+      <chat-answer frequency="1">how-do-you-do</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="an expression of greeting; &quot;every morning they exchanged polite hellos&quot;">
+    <chat-keys>
+      <chat-key>hello</chat-key>
+      <chat-key>hullo</chat-key>
+      <chat-key>hi</chat-key>
+      <chat-key>howdy</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="2">hi</chat-answer>
+      <chat-answer frequency="1">how-do-you-do</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="an expression of greeting; &quot;every morning they exchanged polite hellos&quot;">
+    <chat-keys>
+      <chat-key>hello</chat-key>
+      <chat-key>hullo</chat-key>
+      <chat-key>hi</chat-key>
+      <chat-key>howdy</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="2">hi</chat-answer>
+      <chat-answer frequency="1">how-do-you-do</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="an expression of greeting; &quot;every morning they exchanged polite hellos&quot;">
+    <chat-keys>
+      <chat-key>hello</chat-key>
+      <chat-key>hullo</chat-key>
+      <chat-key>hi</chat-key>
+      <chat-key>howdy</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="2">hi</chat-answer>
+      <chat-answer frequency="1">how-do-you-do</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="an expression of greeting; &quot;every morning they exchanged polite hellos&quot;">
+    <chat-keys>
+      <chat-key>hello</chat-key>
+      <chat-key>hullo</chat-key>
+      <chat-key>hi</chat-key>
+      <chat-key>howdy</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">hi</chat-answer>
+      <chat-answer frequency="1">how-do-you-do</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="a man who is much concerned with his dress and appearance">
+    <chat-keys>
+      <chat-key>dandy</chat-key>
+      <chat-key>dude</chat-key>
+      <chat-key>fop</chat-key>
+      <chat-key>gallant</chat-key>
+      <chat-key>sheik</chat-key>
+      <chat-key>beau</chat-key>
+      <chat-key>swell</chat-key>
+      <chat-key>clotheshorse</chat-key>
+      <chat-key>coxcomb</chat-key>
+      <chat-key>cockscomb</chat-key>
+      <chat-key>macaroni</chat-key>
+      <chat-key>brummell</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="2">dude</chat-answer>
+      <chat-answer frequency="1">clotheshorse</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="a man who is much concerned with his dress and appearance">
+    <chat-keys>
+      <chat-key>dandy</chat-key>
+      <chat-key>dude</chat-key>
+      <chat-key>fop</chat-key>
+      <chat-key>gallant</chat-key>
+      <chat-key>sheik</chat-key>
+      <chat-key>beau</chat-key>
+      <chat-key>swell</chat-key>
+      <chat-key>clotheshorse</chat-key>
+      <chat-key>coxcomb</chat-key>
+      <chat-key>cockscomb</chat-key>
+      <chat-key>macaroni</chat-key>
+      <chat-key>brummell</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="2">dude</chat-answer>
+      <chat-answer frequency="1">clotheshorse</chat-answer>
     </chat-answers>
   </chat-topic>
   <chat-topic name="a man who is much concerned with his dress and appearance">
@@ -74,6 +305,50 @@
     <chat-answers>
       <chat-answer frequency="1">dude</chat-answer>
       <chat-answer frequency="1">clotheshorse</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="i dont get it">
+    <chat-keys>
+      <chat-key>i</chat-key>
+      <chat-key>dont</chat-key>
+      <chat-key>get</chat-key>
+      <chat-key>it</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">i dont get it</chat-answer>
+      <chat-answer frequency="1">it</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="come into the possession of something concrete or abstract; &quot;She got a lot of paintings from her uncle&quot;; &quot;They acquired a new pet&quot;; &quot;Get your results the next day&quot;; &quot;Get permission to take a few days off from work&quot;">
+    <chat-keys>
+      <chat-key>get</chat-key>
+      <chat-key>acquire</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">acquire</chat-answer>
+      <chat-answer frequency="2">i dont get it</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="i dont get it">
+    <chat-keys>
+      <chat-key>i</chat-key>
+      <chat-key>dont</chat-key>
+      <chat-key>get</chat-key>
+      <chat-key>it</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">i dont get it</chat-answer>
+      <chat-answer frequency="1">it</chat-answer>
+    </chat-answers>
+  </chat-topic>
+  <chat-topic name="come into the possession of something concrete or abstract; &quot;She got a lot of paintings from her uncle&quot;; &quot;They acquired a new pet&quot;; &quot;Get your results the next day&quot;; &quot;Get permission to take a few days off from work&quot;">
+    <chat-keys>
+      <chat-key>get</chat-key>
+      <chat-key>acquire</chat-key>
+    </chat-keys>
+    <chat-answers>
+      <chat-answer frequency="1">acquire</chat-answer>
+      <chat-answer frequency="1">i dont get it</chat-answer>
     </chat-answers>
   </chat-topic>
 </chat-map>
