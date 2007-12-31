@@ -46,3 +46,13 @@ hr {
 	background-color: #C8C8C8;
 	border: 2px outset;
 }
+
+.news {
+	margin-left: 1.5em;
+	margin-bottom: 1.5em;
+	margin-top: 1.5em;
+	padding: 0.5em;
+	float: right;
+	background-color: Linen;
+	border: 1px dashed;
+}
