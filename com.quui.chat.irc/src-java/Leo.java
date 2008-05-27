@@ -11,7 +11,7 @@ public class Leo {
 
     // regex to match and capture the word or expressions in both languages from
     // the pretty messy leo html
-    private final static String REGEX = "<td class=\"td1\" nowrap width=\"5%\">(.*?)<td class=\"td1\" nowrap width=\"2%\">&nbsp;</td>.*?<td class=\"td1\" valign=\"middle\" width=\"43%\">(.*?)</td>";
+    private final static String REGEX = "<td nowrap width=\"5%\">(?:(?:&#160;)|(?:<img.+?/>))</td>(.*?)<td nowrap width=\"2%\">&#160;</td>.*?<td valign=\"middle\" width=\"43%\">(.*?)</td>";//"<td class=\"td1\" nowrap width=\"5%\">(.*?)<td class=\"td1\" nowrap width=\"2%\">&nbsp;</td>.*?<td class=\"td1\" valign=\"middle\" width=\"43%\">(.*?)</td>";
 
     // the encoding the leo site uses
     private final static String ENCODING = "iso-8859-15";
@@ -24,6 +24,7 @@ public class Leo {
     public static String lookup(String word) {
         String lookupAdress = ADRESS + word;
         WebsiteLookup lookup = new WebsiteLookup(lookupAdress, ENCODING);
+//        System.out.println(lookup.content);
         List<String> results = lookup.match(REGEX);
         String result = word + ": ";
         int lastIndex = 0;

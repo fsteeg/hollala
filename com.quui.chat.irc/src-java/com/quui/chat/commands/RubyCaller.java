@@ -21,6 +21,8 @@ import org.jruby.RubyArray;
 import org.jruby.RubyHash;
 import org.jruby.runtime.builtin.IRubyObject;
 
+import com.quui.chat.ui.HollalaSolution;
+
 /**
  * @author Fabian Steeg (fsteeg)
  */
@@ -133,7 +135,7 @@ public class RubyCaller {
 	private String returnHelp() {
 		String r = null;
 		try {
-			//begin with this:\u0002 for bold output
+			// begin with this:\u0002 for bold output
 			r = new String("Use my name plus: ".getBytes(), "UTF8");
 			System.out.println("STRING: " + r);
 			// ruby-commands
@@ -154,4 +156,8 @@ public class RubyCaller {
 		return map;
 	}
 
+	public void setUserName(String sender) {
+		((HollalaSolution)this.externalSolution).setUserName(sender);
+		
+	}
 }

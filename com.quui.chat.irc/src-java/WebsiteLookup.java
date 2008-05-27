@@ -24,7 +24,7 @@ public class WebsiteLookup {
 
     private String adress;
 
-    private String content;
+    String content;
 
     /**
      * @param adress

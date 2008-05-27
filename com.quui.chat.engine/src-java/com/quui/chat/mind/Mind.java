@@ -111,6 +111,7 @@ public class Mind {
             // learn the user's sentence as a valid answer
             // if it isnt one already
             if (learn) {
+            	originalMessage = originalMessage.replaceAll("\\s+", " ").replaceAll("\\s(\\W)", "$1");
                 Log.logger.info(" learning: " + originalMessage);
                 this.learning.learnAnswerForTopic(originalMessage, chosenTopic);
                 Log.logger.debug("[learning answer took "

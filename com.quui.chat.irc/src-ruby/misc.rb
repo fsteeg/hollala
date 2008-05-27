@@ -1,5 +1,4 @@
 require 'java'
-require "hollala.jar"
 include_class "com.quui.chat.commands.PP"
 include_class "com.quui.chat.wordgame.WordGameScores"
 def init

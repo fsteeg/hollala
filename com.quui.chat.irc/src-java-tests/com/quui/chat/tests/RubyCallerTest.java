@@ -28,7 +28,7 @@ public class RubyCallerTest {
 			e.printStackTrace();
 		}
 		caller = new RubyCaller("src-ruby", p, new HollalaSolution(p
-				.getProperty("name")));
+				.getProperty("name"), "dude"));
 	}
 
 	@Test

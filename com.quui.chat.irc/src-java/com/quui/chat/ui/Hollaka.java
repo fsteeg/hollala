@@ -11,7 +11,6 @@ package com.quui.chat.ui;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -31,6 +30,8 @@ import com.quui.chat.wordgame.WordGameScores;
  */
 public class Hollaka extends SuperBot {
 	
+	private static final String DUDE = "dude";
+
 	private List<String> listen;
 
     private String name, description, restMessage;
@@ -118,6 +119,7 @@ public class Hollaka extends SuperBot {
      * Process a private message
      */
     protected void srv_privmsg(String sender, String message, String channel) {
+    	this.rubyCaller.setUserName(sender);
 //    	try {
 //			message = new String(message.getBytes(),"utf-8");
 //		} catch (UnsupportedEncodingException e1) {
@@ -144,7 +146,7 @@ public class Hollaka extends SuperBot {
         if (message.equals("!rehash") || !initialized) {
             System.out.println("rehashing");
             initialized = true;
-            rubyCaller = new RubyCaller(scriptsDirectory, properties, new HollalaSolution(name));
+            rubyCaller = new RubyCaller(scriptsDirectory, properties, new HollalaSolution(name, DUDE));
         }
         if (message.equals(this.wordWord) && this.wordGameRunning) {
             this.send_privmsg(channel, "Yes, " + sender
@@ -307,7 +309,7 @@ public class Hollaka extends SuperBot {
 
     @Override
     protected void init() {
-        rubyCaller = new RubyCaller(scriptsDirectory, properties, new HollalaSolution(name));
+        rubyCaller = new RubyCaller(scriptsDirectory, properties, new HollalaSolution(name, DUDE));
         super.init();
     }
 
