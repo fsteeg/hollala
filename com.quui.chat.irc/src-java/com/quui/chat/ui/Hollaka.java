@@ -209,15 +209,11 @@ public class Hollaka extends SuperBot {
             // currentCommand = null;
 
             System.out.println("Command result: " + process);
+            process = process.replaceAll("([^#]{350,350})", "$1...#...");
             int i = 0;
             String[] split = process.split("#");
             for (String m : split) {
             	m=m.trim();
-                // if(m.startsWith("["))
-                // continue;
-                // FIXME
-                if (m.length() > 950)
-                    m = m.substring(0, 950) + "...";
                 this.send_privmsg(channel, m/* .trim() */);
                 try {
                     Thread.sleep(2500);
@@ -233,7 +229,7 @@ public class Hollaka extends SuperBot {
                             && !substring.replaceAll("#", "").trim().equals("")) {
                         // System.out.println("SUBSTRING: " + substring);
                         restMessage = substring;
-                        this.send_privmsg(channel, "...");
+                        this.send_privmsg(channel, "[ more ]");
                     } else
                         restMessage = "[ no more ]";
                     break;
