@@ -12,7 +12,7 @@ def doGoogle(incoming)
     text = incoming.split(" ").join("+")
     adress = "http://www.google.com/search?q=#{text}"
     res = WebsiteLookup.new(adress,"UTF-8").text
-    regex = /<h2 class=r>(.+?)(?=<\/h2>)/m
+    regex = /<h3 class=r>(.+?)(?=<\/h3>)/m
     all=''
     res.scan regex do |url|
       all << "#" << CGI.unescapeHTML(url.join.strip.gsub(/<([^>]+)>/,""))
