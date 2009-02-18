@@ -1,11 +1,14 @@
-/** 
- Project "com.quui.chat.core" (C) 2006 Fabian Steeg
-
- This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.
-
- This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
-
- You should have received a copy of the GNU Lesser General Public License along with this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+/**
+ * Project "com.quui.chat.core" (C) 2006 Fabian Steeg This library is free
+ * software; you can redistribute it and/or modify it under the terms of the GNU
+ * Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details. You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 package com.quui.chat.mind;
 
@@ -20,25 +23,21 @@ import com.quui.chat.mind.wn.WNLookup;
 
 /**
  * Learning functionality
- * 
  * @author Fabian Steeg (fsteeg)
  */
 public class Learning {
     private Mind mind;
 
     /**
-     * @param mind
-     *            The mind to alter
+     * @param mind The mind to alter
      */
     public Learning(Mind mind) {
         this.mind = mind;
     }
 
     /**
-     * @param s
-     *            The user input to add to a topic.
-     * @param chosenTopic
-     *            The topic to add the user input to.
+     * @param s The user input to add to a topic.
+     * @param chosenTopic The topic to add the user input to.
      */
     public void learnAnswerForTopic(String s, Topic chosenTopic) {
         chosenTopic.addAnswer(s);
@@ -46,14 +45,10 @@ public class Learning {
 
     /**
      * Tries to create a new Topic for the user input
-     * 
-     * @param rawUserInput
-     *            The raw user input.
-     * @param tokens
-     *            The preprocessed user input.
+     * @param rawUserInput The raw user input.
+     * @param tokens The preprocessed user input.
      * @param learn
-     * @throws JWNLException
-     *             On problem with WordNet lookup.
+     * @throws JWNLException On problem with WordNet lookup.
      * @return An answer for the last newly learned topic
      */
     protected String learnNewTopics(String rawUserInput, Vector<String> tokens,
@@ -65,11 +60,6 @@ public class Learning {
         for (String name : tokens) {
             if (name.trim().equals(""))
                 throw new NullPointerException("Empty token!");
-//            if (
-            // TODO
-//            mind.isWordNetEnabled && !WNLookup.isContentWord(name)
-//                    || Mind.map.keySet().contains(name))
-//                continue;
             // use wordnet for learning
             if (mind.isWordNetEnabled) {
                 result = learnFromWordNet(name, rawUserInput);
@@ -83,9 +73,7 @@ public class Learning {
                 for (String tok : tokens) {
                     topic.addKey(tok);
                 }
-                // get a answer different from the last given
-                while (mind.lastAnswer.equals(result))
-                    result = topic.getAnswer();
+                result = topic.getAnswer();
                 Mind.topics.add(topic);
                 mind.lastAnswer = result;
                 mind.lastTopic = topic;
@@ -95,10 +83,8 @@ public class Learning {
     }
 
     /**
-     * @param word
-     *            The word to learn
-     * @param rawUserInput
-     *            The entire user input
+     * @param word The word to learn
+     * @param rawUserInput The entire user input
      * @return An answer for the newly learned topic
      */
     private String learnFromWordNet(String word, String rawUserInput) {
@@ -127,10 +113,8 @@ public class Learning {
     }
 
     /**
-     * @param rawUserInput
-     *            The raw user input
-     * @param synset
-     *            The synset
+     * @param rawUserInput The raw user input
+     * @param synset The synset
      * @return The newly created topic for the synset
      */
     private Topic createNewTopic(String rawUserInput, Synset synset) {
@@ -144,19 +128,19 @@ public class Learning {
             if (!topic.containsKey(key)) {
                 topic.addKey(key);
             }
-//            if (key.indexOf("(") == -1 && key.indexOf("_") != -1) {
-//                /*
-//                 * learn the clean composed key as answer too, to trigger
-//                 * conversation:
-//                 */
-//                key = key.replace('_', ' ');
-//                topic.addAnswer(key);
-//            }
+            // if (key.indexOf("(") == -1 && key.indexOf("_") != -1) {
+            // /*
+            // * learn the clean composed key as answer too, to trigger
+            // * conversation:
+            // */
+            // key = key.replace('_', ' ');
+            // topic.addAnswer(key);
+            // }
         }
         // learn related words as keys
         learnRelatedWordsAsKeys(topic, key);
         // for every syn also learn cleaned definitions and uses
-//        learnCleanedDefsAsAnswers(topic, synset);
+        // learnCleanedDefsAsAnswers(topic, synset);
         // a new topic should have at least two answers to no get
         // too obviously stuck
         if (topic.getAnswers().size() < 2) {
@@ -181,7 +165,7 @@ public class Learning {
                 topic.addKey(key);
             }
 
-//            topic.addAnswer(key);
+            // topic.addAnswer(key);
         }
         // learn related words as keys
         learnRelatedWordsAsKeys(topic, key);
@@ -196,8 +180,7 @@ public class Learning {
     }
 
     /**
-     * @param topic
-     *            The topic to get an answer from
+     * @param topic The topic to get an answer from
      * @return A fresh answer, meaning different from the last given
      */
     private String getFreshAnswer(Topic topic) {
@@ -213,8 +196,7 @@ public class Learning {
     }
 
     /**
-     * @param topic
-     *            The new topic to add to the currently active map
+     * @param topic The new topic to add to the currently active map
      */
     private void addToMap(Topic topic) {
         for (Iterator iterator = topic.getKeys().iterator(); iterator.hasNext();) {
@@ -232,27 +214,21 @@ public class Learning {
     }
 
     /**
-     * @param topic
-     *            The topic to learn answers for
-     * @param synset
-     *            The synsets whose defs should be learnend
+     * @param topic The topic to learn answers for
+     * @param synset The synsets whose defs should be learnend
      */
-//    private void learnCleanedDefsAsAnswers(Topic topic, Synset synset) {
-//        String[] defs = WNLookup.getDefsAsAnswers(synset);
-//        for (int i = 0; i < defs.length; i++) {
-//            Log.logger.debug("Learning answer: " + defs[i]);
-//            topic.addAnswer(defs[i]);
-//        }
-//    }
-
+    // private void learnCleanedDefsAsAnswers(Topic topic, Synset synset) {
+    // String[] defs = WNLookup.getDefsAsAnswers(synset);
+    // for (int i = 0; i < defs.length; i++) {
+    // Log.logger.debug("Learning answer: " + defs[i]);
+    // topic.addAnswer(defs[i]);
+    // }
+    // }
     /**
      * Adds max 10 synonymes, hyperonymes (parents) and hyponyms (children) of
      * key as additional keys
-     * 
-     * @param topic
-     *            The topic to learn keys for
-     * @param key
-     *            The basic key
+     * @param topic The topic to learn keys for
+     * @param key The basic key
      */
     private void learnRelatedWordsAsKeys(Topic topic, String key) {
         if (mind.isWordNetEnabled) {
@@ -263,11 +239,8 @@ public class Learning {
 
     /**
      * Adds max 10 hyponyms (children) of key as additional keys
-     * 
-     * @param topic
-     *            The topic to learn keys for
-     * @param key
-     *            The basic key
+     * @param topic The topic to learn keys for
+     * @param key The basic key
      */
     private void learnChildrenAsKeys(Topic topic, String key) {
         Vector<String> children = SemanticRelations.getChildren(key);
@@ -276,10 +249,10 @@ public class Learning {
         if (children.size() < 10) {
             for (int i = 0; i < children.size() && i < 10; i++) {
                 String c = children.get(i);
-//                if (c.contains("_"))
-//                    topic.addAnswer(c.replaceAll("_", " "));
-//                if (c.contains("-"))
-//                    topic.addAnswer(c.replaceAll("-", " "));
+                // if (c.contains("_"))
+                // topic.addAnswer(c.replaceAll("_", " "));
+                // if (c.contains("-"))
+                // topic.addAnswer(c.replaceAll("-", " "));
                 topic.addKey(c);
             }
         }
@@ -287,11 +260,8 @@ public class Learning {
 
     /**
      * Adds max 10 hyperonyms (parents) of key as additional keys
-     * 
-     * @param topic
-     *            The topic to learn keys for
-     * @param key
-     *            The basic key
+     * @param topic The topic to learn keys for
+     * @param key The basic key
      */
     // private void learnParentsAsKeys(Topic topic, String key) {
     // Vector<String> parents = SemanticRelations.getParents(key);

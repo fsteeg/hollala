@@ -51,7 +51,7 @@ public class Mind {
      */
     public boolean interested = false;
 
-    protected boolean isWordNetEnabled = true;
+    protected boolean isWordNetEnabled = false;
 
     private Preprocessor preprocessor = null;
 
@@ -66,10 +66,12 @@ public class Mind {
      *            The mapping of keys to topic-indices
      * @param answerDummies
      *            The dummy answers
+     * @param wnEnabled 
      */
     public Mind(Vector<String> stopwords, Vector<Topic> topics,
-            Map<String, Vector<Integer>> map, Vector<String> answerDummies)
+            Map<String, Vector<Integer>> map, Vector<String> answerDummies, boolean wnEnabled)
             throws IOException {
+        this.isWordNetEnabled = wnEnabled;
         this.learning = new Learning(this);
         this.stopwords = stopwords;
         this.preprocessor = new Preprocessor(this.isWordNetEnabled,

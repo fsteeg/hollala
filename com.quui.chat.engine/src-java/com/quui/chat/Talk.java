@@ -1,11 +1,14 @@
-/** 
- Project "com.quui.chat.core" (C) 2004 Fabian Steeg
-
- This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.
-
- This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
-
- You should have received a copy of the GNU Lesser General Public License along with this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+/**
+ * Project "com.quui.chat.core" (C) 2004 Fabian Steeg This library is free
+ * software; you can redistribute it and/or modify it under the terms of the GNU
+ * Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details. You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 package com.quui.chat;
 
@@ -25,7 +28,6 @@ import com.quui.chat.mind.wn.WNLookup;
 
 /**
  * Access point to the chatbot, the interface between ui and logic
- * 
  * @author Fabian Steeg (fsteeg)
  */
 public class Talk {
@@ -41,10 +43,8 @@ public class Talk {
     }
 
     /**
-     * @param input
-     *            The user input
-     * @param learn
-     *            If true mind will learn
+     * @param input The user input
+     * @param learn If true mind will learn
      * @return The answer on the input
      */
     public String process(String input, boolean learn) {
@@ -83,14 +83,10 @@ public class Talk {
     }
 
     /**
-     * @param topicFolder
-     *            The folder containing the topic file
-     * @param topicFile
-     *            The actual topic file
-     * @param wnLocation
-     *            The path to the file_properties.xml file in wordnet
-     * @param logFolder
-     *            The folder to log to
+     * @param topicFolder The folder containing the topic file
+     * @param topicFile The actual topic file
+     * @param wnLocation The path to the file_properties.xml file in wordnet
+     * @param logFolder The folder to log to
      * @return The Mind
      */
     private Mind getMindInstance(String topicFolder, String topicFile,
@@ -107,9 +103,10 @@ public class Talk {
                         + "stopwords");
                 Vector<String> answerDummies = io.getStopwords(loc
                         + File.separator + "answer-dummies");
-                new WNLookup().init(wnLocation);
+                if (wnLocation != null)
+                    new WNLookup().init(wnLocation);
                 mind = new Mind(stopwords, io.getTopics(), io.getMap(),
-                        answerDummies);
+                        answerDummies, wnLocation!=null);
                 Log.logger.info("mind init complete, took "
                         + (System.currentTimeMillis() - s) + " ms.");
             } catch (FileNotFoundException e) {
