@@ -1,11 +1,14 @@
-/** 
- Project "com.quui.chat.core" (C) 2004 Fabian Steeg
-
- This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.
-
- This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
-
- You should have received a copy of the GNU Lesser General Public License along with this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+/**
+ * Project "com.quui.chat.core" (C) 2004 Fabian Steeg This library is free
+ * software; you can redistribute it and/or modify it under the terms of the GNU
+ * Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details. You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
 package com.quui.chat.mind;
@@ -30,19 +33,18 @@ import com.quui.chat.io.MapToDOM;
 /**
  * Central class of the Chatbot Engine, contains the logic to determine an
  * answer for an input
- * 
  * @author Fabian Steeg (fsteeg)
  */
 public class Mind {
     private Vector<String> stopwords;
 
-    protected static Vector<Topic> topics;
+    protected Vector<Topic> topics;
 
     public Topic lastTopic;
 
     private Vector<String> answerDummies;
 
-    protected static Map<String, Vector<Integer>> map;
+    protected Map<String, Vector<Integer>> map;
 
     public String lastAnswer = null;
 
@@ -58,36 +60,29 @@ public class Mind {
     private Learning learning;
 
     /**
-     * @param stopwords
-     *            The stopwords
-     * @param topics
-     *            The topics
-     * @param map
-     *            The mapping of keys to topic-indices
-     * @param answerDummies
-     *            The dummy answers
-     * @param wnEnabled 
+     * @param stopwords The stopwords
+     * @param topics The topics
+     * @param map The mapping of keys to topic-indices
+     * @param answerDummies The dummy answers
+     * @param wnEnabled
      */
     public Mind(Vector<String> stopwords, Vector<Topic> topics,
-            Map<String, Vector<Integer>> map, Vector<String> answerDummies, boolean wnEnabled)
-            throws IOException {
+            Map<String, Vector<Integer>> map, Vector<String> answerDummies,
+            boolean wnEnabled) throws IOException {
         this.isWordNetEnabled = wnEnabled;
         this.learning = new Learning(this);
         this.stopwords = stopwords;
         this.preprocessor = new Preprocessor(this.isWordNetEnabled,
                 this.stopwords);
-        Mind.topics = topics;
-        Mind.map = map;
+        this.topics = topics;
+        this.map = map;
         this.answerDummies = answerDummies;
     }
 
     /**
      * The main processing function.
-     * 
-     * @param originalMessage
-     *            The user input.
-     * @param learn
-     *            If true input is learned
+     * @param originalMessage The user input.
+     * @param learn If true input is learned
      * @return Returns an answer on the input.
      */
     public synchronized String processConversation(String originalMessage,
@@ -113,7 +108,8 @@ public class Mind {
             // learn the user's sentence as a valid answer
             // if it isnt one already
             if (learn) {
-            	originalMessage = originalMessage.replaceAll("\\s+", " ").replaceAll("\\s(\\W)", "$1");
+                originalMessage = originalMessage.replaceAll("\\s+", " ")
+                        .replaceAll("\\s(\\W)", "$1");
                 Log.logger.info(" learning: " + originalMessage);
                 this.learning.learnAnswerForTopic(originalMessage, chosenTopic);
                 Log.logger.debug("[learning answer took "
@@ -148,8 +144,7 @@ public class Mind {
     }
 
     /**
-     * @param chosenTopic
-     *            The topic to get the answer from
+     * @param chosenTopic The topic to get the answer from
      * @return Returns a new original answer, different from the last one
      */
     private String getAnswer(Topic chosenTopic) {
@@ -158,10 +153,7 @@ public class Mind {
         if (this.lastAnswer == null) {
             this.lastAnswer = answer;
         }
-        // get an answer that isnt the one just given
-        while (this.lastAnswer.equals(answer)) {
-            answer = chosenTopic.getAnswer();
-        }
+        answer = chosenTopic.getAnswer();
         this.lastAnswer = answer;
         return answer;
     }
@@ -169,11 +161,8 @@ public class Mind {
     /**
      * Retreives the Topic with the highest score and checks if that makes him
      * interested
-     * 
-     * @param originalMessage
-     *            The original message
-     * @param tokens
-     *            The preprocessed input words
+     * @param originalMessage The original message
+     * @param tokens The preprocessed input words
      * @return The topic for the input
      */
     private Topic searchTopic(String originalMessage, Vector<String> tokens) {
@@ -198,9 +187,7 @@ public class Mind {
      * Searches the best Topic for the user input. First tries to find a
      * suitable topic in the internnal map of topics. If nothing is found, try
      * to find a semantical connected topic via WordNet lookup.
-     * 
-     * @param tokens
-     *            The preprocessed user input.
+     * @param tokens The preprocessed user input.
      * @return Returns the best topic for the user input (hopefully).
      */
     private Topic getBestTopic(Vector<String> tokens, int rawWordCount) {
@@ -210,11 +197,8 @@ public class Mind {
     /**
      * Look for topics via their keys. If a key matches exactly the topic is
      * returned. Else the topic with highest score is returned.
-     * 
-     * @param tokens
-     *            The preprocessed user input to find a suitable topic for.
-     * @param rawInputWordCount
-     *            The number of words in the original input
+     * @param tokens The preprocessed user input to find a suitable topic for.
+     * @param rawInputWordCount The number of words in the original input
      * @return Return the best Topic found.
      */
     private Topic lookupInternal(Vector<String> tokens, int rawInputWordCount) {
@@ -223,24 +207,18 @@ public class Mind {
         long start = System.currentTimeMillis();
         for (String recentToken : tokens) {
             Vector<Topic> candidateTopics = new Vector<Topic>();
-            Vector<Integer> candidateTopicsIndices = Mind.map.get(recentToken);
+            Vector<Integer> candidateTopicsIndices = this.map.get(recentToken);
             start = System.currentTimeMillis();
             if (candidateTopicsIndices != null)
                 for (Integer integer : candidateTopicsIndices) {
                     // Log.logger.info("key " + recentToken);
-                    Topic rec = Mind.topics.elementAt(integer);
+                    Topic rec = this.topics.elementAt(integer);
                     double score = 0;
                     int inputHits = Scoring.checkSimple(tokens, rec,
                             this.isWordNetEnabled);
                     score = inputHits / (double) rawInputWordCount;
                     if (rec.getName().equals(recentToken)
                             || rec.containsKey(recentToken)) {
-                        // Log.logger
-                        // .debug("[found a topic containing a key, topic is '"
-                        // + rec.getName()
-                        // + "', key is '"
-                        // + recentToken + "']");
-                        // exact match
                         addToFinalCandidates(keysAndTopics, candidateTopics,
                                 rec, score);
                     }
@@ -251,11 +229,6 @@ public class Mind {
                             this.isWordNetEnabled);
                     score = inputHits / (double) rawInputWordCount;
                     if (score > 0) {
-                        // Log.logger
-                        // .debug("[found a topic with score, topic is '"
-                        // + rec.getName() + "', score is '"
-                        // + score + "']");
-                        // approxiamte match, remember
                         addToFinalCandidates(keysAndTopics, candidateTopics,
                                 rec, score);
                     }
@@ -267,33 +240,6 @@ public class Mind {
                         + this.lastTopic.getName());
                 return this.lastTopic;
             }
-            // check every topic
-            // for (Topic rec : Mind.topics) {
-            // double score = 0;
-            // if (rec.getName().equals(recentToken)
-            // || rec.containsKey(recentToken)) {
-            // Log.logger
-            // .debug("[found a topic containing a key, topic is '"
-            // + rec.getName()
-            // + "', key is '"
-            // + recentToken + "']");
-            // // exact match, done
-            // return rec;
-            // }
-            //
-            // // compare synonymes of every word in the input with each
-            // // topic:
-            // int inputHits = Scoring.checkSimple(tokens, rec,
-            // this.isWordNetEnabled);
-            // score = inputHits / (double) rawInputWordCount;
-            // if (score > 0) {
-            // Log.logger.debug("[found a topic with score, topic is '"
-            // + rec.getName() + "', score is '" + score + "']");
-            // // approxiamte match, remember
-            // addToFinalCandidates(keysAndTopics, candidateTopics, rec,
-            // score);
-            // }
-            // }
             // every noun-like word in input that has a topic with score > 0
             // is added to mapping:
             Topic result = Scoring.getTopicWithMaxScore(candidateTopics);
@@ -327,14 +273,10 @@ public class Mind {
     }
 
     /**
-     * @param keysAndTopics
-     *            The mapping of strings to topics
-     * @param candidateTopics
-     *            The topics
-     * @param rec
-     *            The topic to add
-     * @param score
-     *            The score
+     * @param keysAndTopics The mapping of strings to topics
+     * @param candidateTopics The topics
+     * @param rec The topic to add
+     * @param score The score
      */
     private static void addToFinalCandidates(Map<String, Topic> keysAndTopics,
             Vector<Topic> candidateTopics, Topic rec, double score) {
@@ -364,11 +306,10 @@ public class Mind {
     }
 
     /**
-     * @param inputWord
-     *            The input word
+     * @param inputWord The input word
      * @return The Topic[] containing the topics found
      */
-    public static Topic[] findTopics(String inputWord) {
+    public Topic[] findTopics(String inputWord) {
         Vector topics = (Vector) map.get(inputWord);
         if (topics == null) {
             return null;
@@ -394,35 +335,30 @@ public class Mind {
         if (numberOfAnswers > 0) {
             String result = this.answerDummies.elementAt(randomGen
                     .nextInt(numberOfAnswers));
-            while (result.equals(this.lastAnswer)) {
-                result = this.answerDummies.elementAt(randomGen
-                        .nextInt(numberOfAnswers));
-            }
+            result = this.answerDummies.elementAt(randomGen
+                    .nextInt(numberOfAnswers));
             return result;
-        } else {
-            return null;
         }
+        return null;
     }
 
     /**
      * @return The mapping of keys to topic-indices
      */
     public Map<String, Vector<Integer>> getMap() {
-        return Mind.map;
+        return map;
     }
 
     /**
      * @return The topics
      */
     public Vector<Topic> getTopics() {
-        return Mind.topics;
+        return topics;
     }
 
     /**
      * Saves the internal map to disk.
-     * 
-     * @throws ParserConfigurationException
-     *             If saving fails.
+     * @throws ParserConfigurationException If saving fails.
      */
     public synchronized void saveMap(String topicFileName)
             throws ParserConfigurationException {

@@ -27,7 +27,7 @@ import com.quui.chat.mind.Mind;
 import com.quui.chat.mind.wn.WNLookup;
 
 /**
- * Access point to the chatbot, the interface between ui and logic
+ * Access point to the chatbot, the interface between ui and logic.
  * @author Fabian Steeg (fsteeg)
  */
 public class Talk {
@@ -93,30 +93,28 @@ public class Talk {
             String wnLocation, String logFolder) {
         if (mind != null) {
             return mind;
-        } else {
-            Log.init(logFolder);
-            long s = System.currentTimeMillis();
-            try {
-                String loc = topicFolder;
-                IO io = new IO(loc + File.separator + topicFile);
-                Vector<String> stopwords = io.getStopwords(loc + File.separator
-                        + "stopwords");
-                Vector<String> answerDummies = io.getStopwords(loc
-                        + File.separator + "answer-dummies");
-                if (wnLocation != null)
-                    new WNLookup().init(wnLocation);
-                mind = new Mind(stopwords, io.getTopics(), io.getMap(),
-                        answerDummies, wnLocation!=null);
-                Log.logger.info("mind init complete, took "
-                        + (System.currentTimeMillis() - s) + " ms.");
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return mind;
         }
-
+        Log.init(logFolder);
+        long s = System.currentTimeMillis();
+        try {
+            String loc = topicFolder;
+            IO io = new IO(loc + File.separator + topicFile);
+            Vector<String> stopwords = io.getStopwords(loc + File.separator
+                    + "stopwords");
+            Vector<String> answerDummies = io.getStopwords(loc + File.separator
+                    + "answer-dummies");
+            if (wnLocation != null)
+                new WNLookup().init(wnLocation);
+            mind = new Mind(stopwords, io.getTopics(), io.getMap(),
+                    answerDummies, wnLocation != null);
+            Log.logger.info("mind init complete, took "
+                    + (System.currentTimeMillis() - s) + " ms.");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return mind;
     }
 
     /**

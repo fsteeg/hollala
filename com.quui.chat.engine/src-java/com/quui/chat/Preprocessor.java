@@ -1,11 +1,14 @@
-/** 
- Project "com.quui.chat.core" (C) 2006 Fabian Steeg
-
- This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.
-
- This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
-
- You should have received a copy of the GNU Lesser General Public License along with this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+/**
+ * Project "com.quui.chat.core" (C) 2006 Fabian Steeg This library is free
+ * software; you can redistribute it and/or modify it under the terms of the GNU
+ * Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details. You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 package com.quui.chat;
 
@@ -17,8 +20,7 @@ import org.apache.commons.lang.StringUtils;
 import com.quui.chat.mind.wn.WNLookup;
 
 /**
- * A simple preprocessor
- * 
+ * A simple preprocessor.
  * @author Fabian Steeg (fsteeg)
  */
 public class Preprocessor {
@@ -27,10 +29,10 @@ public class Preprocessor {
     private boolean isWordNetEnabled;
 
     /**
-     * @param isWordnetEnabled
-     *            If true this preprocessor uses wordnet for stemming
-     * @param stopwords
-     *            The words to ignore, will be filtered while preprocessing
+     * @param isWordnetEnabled If true this preprocessor uses wordnet for
+     *            stemming
+     * @param stopwords The words to ignore, will be filtered while
+     *            preprocessing
      */
     public Preprocessor(boolean isWordnetEnabled, Vector<String> stopwords) {
         this.isWordNetEnabled = isWordnetEnabled;
@@ -40,9 +42,7 @@ public class Preprocessor {
     /**
      * Tokenizes the user input, then every word thats not in the stopwords-list
      * is stemmed and these are returned.
-     * 
-     * @param s
-     *            The input to answer to.
+     * @param s The input to answer to.
      * @return Returns those words (stemmed) that will be processed
      */
     public Vector<String> preProcess(String s) {
@@ -62,13 +62,15 @@ public class Preprocessor {
             String firstStem = element;
             if (this.isWordNetEnabled) {
                 firstStem = WNLookup.getStaticStem(element);
-                if (firstStem.equals(""))
+                if (firstStem.equals("")) {
                     firstStem = element;
+                }
             }
             if (!this.stopwords.contains(firstStem)
                     && firstStem.trim().length() > 1) {
-                if (firstStem.trim().equals(""))
+                if (firstStem.trim().equals("")) {
                     throw new NullPointerException("Empty token!");
+                }
                 result.add(firstStem);
             }
         }
@@ -78,11 +80,8 @@ public class Preprocessor {
     /**
      * Cleans all occurences and almost-occurences (Levenshtein Distance) of
      * nick in message.
-     * 
-     * @param message
-     *            The message to clean
-     * @param nick
-     *            The nick to clean from the message
+     * @param message The message to clean
+     * @param nick The nick to clean from the message
      * @return The cleaned message
      */
     static public String clean(String message, String nick) {
@@ -102,23 +101,23 @@ public class Preprocessor {
             }
 
         }
-        message = "";
+        String result = "";
         for (int j = 0; j < toks.length; j++) {
-            message = (message + toks[j].trim()).trim() + " ";
+            result = (message + toks[j].trim()).trim() + " ";
         }
-        return message.trim();
+        return result.trim();
     }
 
     /**
-     * @param message
-     *            the string to check for non ascii
+     * @param message the string to check for non ascii
      * @return true is string contains non-ascii, else false
      */
     static public boolean containsNonAscii(String message) {
         char[] m = message.toCharArray();
         for (int i = 0; i < m.length; i++) {
-            if ((int) m[i] < 0 || (int) m[i] > 127)
+            if (m[i] < 0 || m[i] > 127) {
                 return true;
+            }
         }
         return false;
     }

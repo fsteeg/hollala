@@ -40,15 +40,16 @@ public class SemanticRelations {
      *            if true stemming is used
      * @param rawWordCount
      *            The number of words in the original input
+     * @param mind 
      * @return A topic found for a parent with a score higher than max score
      */
     public static Topic checkParents(String inputWord, double maxScore,
-            boolean isWordNetEnabled, double rawWordCount) {
+            boolean isWordNetEnabled, double rawWordCount, Mind mind) {
         Vector<String> parents = getParents(inputWord);
         Topic[] topicsArray = null;
         for (Iterator iterator = parents.iterator(); iterator.hasNext();) {
             String parent = (String) iterator.next();
-            topicsArray = Mind.findTopics(parent);
+            topicsArray = mind.findTopics(parent);
             if (topicsArray != null) {
                 for (int i = 0; i < topicsArray.length; i++) {
                     Topic result = topicsArray[i];
@@ -81,16 +82,17 @@ public class SemanticRelations {
      * @param rawWordCount
      *            The number of words in the origninal input, for computing the
      *            score
+     * @param mind 
      * @return A topic for a synonym with a higher score than max score
      */
     public static Topic checkSyns(String inputWord, double maxScore,
-            double rawWordCount) {
+            double rawWordCount, Mind mind) {
         Vector<Synset> syns = getSynsets(inputWord);
         for (Synset set : syns) {
             Word[] w = set.getWords();
             for (int j = 0; j < w.length; j++) {
                 String syn = w[j].getLemma();
-                Topic[] topicsArray = Mind.findTopics(syn);
+                Topic[] topicsArray = mind.findTopics(syn);
                 if (topicsArray != null) {
                     for (int i = 0; i < topicsArray.length; i++) {
                         Topic result = topicsArray[i];
@@ -126,15 +128,16 @@ public class SemanticRelations {
      *            If true words are stemmed
      * @param rawWordCount
      *            The number of words in the original input
+     * @param mind 
      * @return A topic for a child with a higher score than max score
      */
     public static Topic checkChildren(String inputWord, double maxScore,
-            boolean isWordNetEnabled, int rawWordCount) {
+            boolean isWordNetEnabled, int rawWordCount, Mind mind) {
         Vector<String> children = getChildren(inputWord);
         Topic[] topicsArray = null;
         for (Iterator iterator = children.iterator(); iterator.hasNext();) {
             String child = (String) iterator.next();
-            topicsArray = Mind.findTopics(child);
+            topicsArray = mind.findTopics(child);
             if (topicsArray != null) {
                 for (int i = 0; i < topicsArray.length; i++) {
                     Topic result = topicsArray[i];

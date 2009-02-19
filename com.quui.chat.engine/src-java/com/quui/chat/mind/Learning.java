@@ -74,7 +74,7 @@ public class Learning {
                     topic.addKey(tok);
                 }
                 result = topic.getAnswer();
-                Mind.topics.add(topic);
+                mind.topics.add(topic);
                 mind.lastAnswer = result;
                 mind.lastTopic = topic;
             }
@@ -94,7 +94,7 @@ public class Learning {
         for (Synset synset : synSets) {
             Topic topic = createNewTopic(rawUserInput, synset);
             addToMap(topic);
-            Mind.topics.add(topic);
+            mind.topics.add(topic);
             if (topic != null) {
                 return getFreshAnswer(topic);
             }
@@ -103,7 +103,7 @@ public class Learning {
         if (synSets.size() == 0) {
             Topic topic = createNewTopic(rawUserInput);
             addToMap(topic);
-            Mind.topics.add(topic);
+            mind.topics.add(topic);
             if (topic != null) {
                 return getFreshAnswer(topic);
             }
@@ -128,19 +128,19 @@ public class Learning {
             if (!topic.containsKey(key)) {
                 topic.addKey(key);
             }
-            // if (key.indexOf("(") == -1 && key.indexOf("_") != -1) {
-            // /*
-            // * learn the clean composed key as answer too, to trigger
-            // * conversation:
-            // */
-            // key = key.replace('_', ' ');
-            // topic.addAnswer(key);
-            // }
+            if (key.indexOf("(") == -1 && key.indexOf("_") != -1) {
+                /*
+                 * learn the clean composed key as answer too, to trigger
+                 * conversation:
+                 */
+                key = key.replace('_', ' ');
+                topic.addAnswer(key);
+            }
         }
         // learn related words as keys
         learnRelatedWordsAsKeys(topic, key);
         // for every syn also learn cleaned definitions and uses
-        // learnCleanedDefsAsAnswers(topic, synset);
+        learnCleanedDefsAsAnswers(topic, synset);
         // a new topic should have at least two answers to no get
         // too obviously stuck
         if (topic.getAnswers().size() < 2) {
@@ -189,8 +189,7 @@ public class Learning {
         String answer = topic.getAnswer();
         if (mind.lastAnswer == null)
             mind.lastAnswer = answer;
-        while (mind.lastAnswer.equals(answer))
-            answer = topic.getAnswer();
+        answer = topic.getAnswer();
         mind.lastAnswer = answer;
         return answer;
     }
@@ -201,14 +200,14 @@ public class Learning {
     private void addToMap(Topic topic) {
         for (Iterator iterator = topic.getKeys().iterator(); iterator.hasNext();) {
             String k = (String) iterator.next();
-            if (!Mind.map.keySet().contains(k)) {
+            if (!mind.map.keySet().contains(k)) {
                 Vector<Integer> v = new Vector<Integer>();
-                v.add(new Integer(Mind.topics.size()));
-                Mind.map.put(k, v);
+                v.add(Integer.valueOf(mind.topics.size()));
+                mind.map.put(k, v);
             } else {
-                Vector<Integer> topicIndicesForKey = Mind.map.get(k);
-                topicIndicesForKey.add(new Integer(Mind.topics.size()));
-                Mind.map.put(k, topicIndicesForKey);
+                Vector<Integer> topicIndicesForKey = mind.map.get(k);
+                topicIndicesForKey.add(Integer.valueOf(mind.topics.size()));
+                mind.map.put(k, topicIndicesForKey);
             }
         }
     }
@@ -217,13 +216,14 @@ public class Learning {
      * @param topic The topic to learn answers for
      * @param synset The synsets whose defs should be learnend
      */
-    // private void learnCleanedDefsAsAnswers(Topic topic, Synset synset) {
-    // String[] defs = WNLookup.getDefsAsAnswers(synset);
-    // for (int i = 0; i < defs.length; i++) {
-    // Log.logger.debug("Learning answer: " + defs[i]);
-    // topic.addAnswer(defs[i]);
-    // }
-    // }
+    private void learnCleanedDefsAsAnswers(Topic topic, Synset synset) {
+        String[] defs = WNLookup.getDefsAsAnswers(synset);
+        for (int i = 0; i < defs.length; i++) {
+            Log.logger.debug("Learning answer: " + defs[i]);
+            topic.addAnswer(defs[i]);
+        }
+    }
+
     /**
      * Adds max 10 synonymes, hyperonymes (parents) and hyponyms (children) of
      * key as additional keys
@@ -249,10 +249,10 @@ public class Learning {
         if (children.size() < 10) {
             for (int i = 0; i < children.size() && i < 10; i++) {
                 String c = children.get(i);
-                // if (c.contains("_"))
-                // topic.addAnswer(c.replaceAll("_", " "));
-                // if (c.contains("-"))
-                // topic.addAnswer(c.replaceAll("-", " "));
+                if (c.contains("_"))
+                    topic.addAnswer(c.replaceAll("_", " "));
+                if (c.contains("-"))
+                    topic.addAnswer(c.replaceAll("-", " "));
                 topic.addKey(c);
             }
         }
