@@ -133,7 +133,7 @@ public class Learning {
                  * learn the clean composed key as answer too, to trigger
                  * conversation:
                  */
-                key = key.replace('_', ' ');
+                key = key.replaceAll("_", " ");
                 topic.addAnswer(key);
             }
         }
@@ -244,36 +244,12 @@ public class Learning {
      */
     private void learnChildrenAsKeys(Topic topic, String key) {
         Vector<String> children = SemanticRelations.getChildren(key);
-        // if (children.size() > 0)
-        // Log.logger.debug("\t [children] " + children.toString());
         if (children.size() < 10) {
             for (int i = 0; i < children.size() && i < 10; i++) {
                 String c = children.get(i);
-                if (c.contains("_"))
-                    topic.addAnswer(c.replaceAll("_", " "));
-                if (c.contains("-"))
-                    topic.addAnswer(c.replaceAll("-", " "));
+                topic.addAnswer(c.replaceAll("_", " ").replaceAll("-", " "));
                 topic.addKey(c);
             }
         }
     }
-
-    /**
-     * Adds max 10 hyperonyms (parents) of key as additional keys
-     * @param topic The topic to learn keys for
-     * @param key The basic key
-     */
-    // private void learnParentsAsKeys(Topic topic, String key) {
-    // Vector<String> parents = SemanticRelations.getParents(key);
-    // // if (parents.size() > 0)
-    // // Log.logger.debug("\t [parents] " + parents.toString());
-    // for (int i = 0; i < parents.size() && i < 10; i++) {
-    // String p = parents.get(i);
-    // if (p.contains("_"))
-    // topic.addAnswer(p.replaceAll("_", " "));
-    // if (p.contains("-"))
-    // topic.addAnswer(p.replaceAll("-", " "));
-    // topic.addKey(p);
-    // }
-    // }
 }

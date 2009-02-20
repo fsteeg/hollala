@@ -103,7 +103,7 @@ public class Preprocessor {
         }
         String result = "";
         for (int j = 0; j < toks.length; j++) {
-            result = (message + toks[j].trim()).trim() + " ";
+            result = (result + toks[j].trim()).trim() + " ";
         }
         return result.trim();
     }

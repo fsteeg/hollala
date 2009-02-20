@@ -48,8 +48,8 @@ public class Log {
             logger.addAppender(infoFileAppender);
             logger.addAppender(debugFileAppender);
 
-            ConsoleAppender consoleAppender = new ConsoleAppender(
-                    new SimpleLayout());
+//            ConsoleAppender consoleAppender = new ConsoleAppender(
+//                    new SimpleLayout());
 
             // print all but debug messages:
             LevelMatchFilter debugLevelMatchFilter = new LevelMatchFilter();
@@ -57,9 +57,9 @@ public class Log {
             debugLevelMatchFilter.setAcceptOnMatch(false);
             infoFileAppender.addFilter(debugLevelMatchFilter);
 
-            consoleAppender.addFilter(debugLevelMatchFilter);
+//            consoleAppender.addFilter(debugLevelMatchFilter);
 
-            logger.addAppender(consoleAppender);
+//            logger.addAppender(consoleAppender);
         } catch (IOException e) {
             e.printStackTrace();
         }

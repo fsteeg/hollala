@@ -49,6 +49,10 @@ public class MindTest extends TestCase {
         // something known:
         String answer = t.process("hi", true);
         System.out.println("---------------Answer: " + answer);
+        
+        answer = t.process("ok fine", true);
+        // t.save();
+        System.out.println("---------------Answer: " + answer);
         // something new:
         answer = t.process("jackie", true);
         // t.save();
