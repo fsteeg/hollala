@@ -12,6 +12,7 @@
  */
 package com.quui.chat;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -24,7 +25,13 @@ import junit.framework.TestCase;
  * @author Fabian Steeg (fsteeg)
  */
 public class MindTest extends TestCase {
-    Talk t = null;
+    /* Test inputs: */
+    private static final String[] questions = new String[] { "hi", "ok fine",
+            "jackie", "how are things", "how are you", "wie geht's?",
+            "was geht?", "hallo mein lieber", "do you like opera?",
+            "i like turtles", "who is god?" };
+    private String wn;
+    private String log;
 
     protected void setUp() throws Exception {
         super.setUp();
@@ -36,27 +43,39 @@ public class MindTest extends TestCase {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        String wn = p.getProperty("wn");
-        t = new Talk("config", "test.xml", wn == null || wn.equals("no") ? null
-                : wn, p.getProperty("log"));
+        wn = p.getProperty("wn");
+        log = p.getProperty("log");
+
     }
 
-    /**
-     * Test method for 'com.quui.chat.mind.Mind.processConversation(String,
-     * boolean)'
-     */
-    public void testProcessConversation() {
-        // something known:
-        String answer = t.process("hi", true);
-        System.out.println("---------------Answer: " + answer);
-        
-        answer = t.process("ok fine", true);
-        // t.save();
-        System.out.println("---------------Answer: " + answer);
-        // something new:
-        answer = t.process("jackie", true);
-        // t.save();
-        System.out.println("---------------Answer: " + answer);
+    public void testNoWnNoBase() {
+        process(new Talk("config", "empty.xml", null, log), questions);
+        new File("config/empty.xml").delete();
+    }
+
+    public void testWithWnNoBase() {
+        process(new Talk("config", "empty.xml", wn, log), questions);
+        new File("config/empty.xml").delete();
+    }
+
+    public void testNoWnBigBase() {
+        process(new Talk("config", "topics-hollala.xml", null, log), questions);
+    }
+
+    public void testWithWnBigBase() {
+        process(new Talk("config", "topics-hollala.xml", wn, log), questions);
+    }
+
+    private void process(Talk t, String... strings) {
+        System.out
+                .println("----------------------------------------------------------------------------------------------------");
+        System.out.println(String.format("Testing: %s", t));
+        System.out
+                .println("----------------------------------------------------------------------------------------------------");
+        for (String string : strings) {
+            System.out.println(String.format("'%s' --> '%s'", string, t
+                    .process(string, true)));
+        }
     }
 
 }

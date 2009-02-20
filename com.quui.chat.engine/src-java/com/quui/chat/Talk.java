@@ -32,13 +32,23 @@ import com.quui.chat.mind.wn.WNLookup;
  */
 public class Talk {
 
+    @Override
+    public String toString() {
+        return String.format("%s with topic file '%s' and wordnet '%s'", this
+                .getClass().getSimpleName(), this.topicFileLocation,
+                this.wnLocation);
+    }
+
     private Mind mind;
 
     private String topicFileLocation;
 
+    private String wnLocation;
+
     public Talk(String topicFolder, String topicFile, String wnLocation,
             String logFolder) {
         this.topicFileLocation = topicFolder + File.separator + topicFile;
+        this.wnLocation = wnLocation;
         mind = getMindInstance(topicFolder, topicFile, wnLocation, logFolder);
     }
 

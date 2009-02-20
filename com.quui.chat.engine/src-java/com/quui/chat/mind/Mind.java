@@ -89,20 +89,20 @@ public class Mind {
             boolean learn) {
         long start = System.currentTimeMillis();
         Vector<String> tokens = this.preprocessor.preProcess(originalMessage);
-        Log.logger.info("[preprocessing took "
+        Log.logger.debug("[preprocessing took "
                 + (System.currentTimeMillis() - start) / 1000 + "s]");
         start = System.currentTimeMillis();
         // look for the best topic on the user input, within the existing
         // topics, will try to use wordnet to determine the best topic:
         Topic chosenTopic = searchTopic(originalMessage, tokens);
-        Log.logger.info("[searching topic took "
+        Log.logger.debug("[searching topic took "
                 + (System.currentTimeMillis() - start) / 1000 + "s]");
         start = System.currentTimeMillis();
         String answer = null;
         if (chosenTopic != null) {
             this.lastTopic = chosenTopic;
             answer = getAnswer(chosenTopic);
-            Log.logger.info("[getting an answer took "
+            Log.logger.debug("[getting an answer took "
                     + (System.currentTimeMillis() - start) / 1000 + "s]");
             start = System.currentTimeMillis();
             // learn the user's sentence as a valid answer
@@ -110,17 +110,17 @@ public class Mind {
             if (learn) {
                 originalMessage = originalMessage.replaceAll("\\s+", " ")
                         .replaceAll("\\s(\\W)", "$1");
-                Log.logger.info(" learning: " + originalMessage);
+                Log.logger.debug(" learning: " + originalMessage);
                 this.learning.learnAnswerForTopic(originalMessage, chosenTopic);
                 Log.logger.debug("[learning answer took "
                         + (System.currentTimeMillis() - start) / 1000 + "s]");
                 start = System.currentTimeMillis();
                 this.learning.learnNewTopics(originalMessage, tokens, learn);
-                Log.logger.info("[learning topics took "
+                Log.logger.debug("[learning topics took "
                         + (System.currentTimeMillis() - start) / 1000 + "s]");
                 start = System.currentTimeMillis();
             } else {
-                Log.logger.info("Not learning: " + originalMessage);
+                Log.logger.debug("Not learning: " + originalMessage);
             }
 
         }
@@ -250,16 +250,16 @@ public class Mind {
                 Log.logger.debug(message);
                 keysAndTopics.put(recentToken, result);
             }
-            Log.logger.info("[lookup for: " + recentToken + " took "
+            Log.logger.debug("[lookup for: " + recentToken + " took "
                     + (System.currentTimeMillis() - start) / 1000 + "s]");
             start = System.currentTimeMillis();
         }
-        Log.logger.info("[internal lookup took "
+        Log.logger.debug("[internal lookup took "
                 + (System.currentTimeMillis() - start) / 1000 + "s]");
         start = System.currentTimeMillis();
         // retrieve the one with highest rating:
         Topic result = Scoring.getTopicWithMaxScore(keysAndTopics.values());
-        Log.logger.info("[getting best topic took "
+        Log.logger.debug("[getting best topic took "
                 + (System.currentTimeMillis() - start) / 1000 + "s]");
         start = System.currentTimeMillis();
         if (result != null) {
