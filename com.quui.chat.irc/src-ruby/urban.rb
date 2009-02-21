@@ -3,7 +3,8 @@ require 'cgi'
 include_class "com.quui.chat.commands.WebsiteLookup"
 
 def init
-  {"define"=>"doUrban"}
+  {"whats"=>"doUrban","what's"=>"doUrban","what's a"=>"doUrban",
+    "whats a"=>"doUrban","urban"=>"doUrban"}
 end
 def doUrban(incoming)
   if (incoming.strip=='')
@@ -12,15 +13,14 @@ def doUrban(incoming)
     text = incoming.split(" ").join("+")
     adress = "http://www.urbandictionary.com/define.php?term=#{text}"
     res = WebsiteLookup.new(adress,"UTF-8").text
-    regex = /<div class='definition'>(.+?)<\/div>/m # <p>(.+?)(?=<\/p>)
+    regex = /<div class='definition'>(.+?)<\/div>/m
     all=''
     res.scan regex do |url|
       all << "#" << CGI.unescapeHTML(url.join.strip.gsub(/<([^>]+)>/,""))
     end
   end
-  p "ALLLLLLLLLLLLLLLLL: " << all
+  p "All in doUrban: " << all
   if(all[0..5]=="#Add a")
-  p "HUHUHUHUHUHUHUHUHUHUHUHUHUHUHHUUHUHUH"
     all << " http://www.urbandictionary.com/insert.php?word=#{text}"
   end
   if(all.strip=='')

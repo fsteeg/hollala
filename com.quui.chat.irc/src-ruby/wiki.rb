@@ -8,13 +8,11 @@ end
 def doWiki(incoming)
   in_toks = incoming.split(" ")
   incoming = in_toks[1..in_toks.length-1].collect{|word|word.capitalize!}.join(" ")
-  # puts "incoming: " << incoming
   if (in_toks.length < 2)
     return ["Usage: wiki <lang> <terms>'",nil];
   else
     text = incoming.split(" ").join("_")
     adress = "http://#{in_toks[0]}.wikipedia.org/wiki/#{text}"
-    # puts "opening: " + adress
    res = WebsiteLookup.new(adress,"UTF-8").text
     regex = /(?:<p>(.+?)(?=<\/p>))|(?:<li>(.+?)(?=<\/li>))/m
     all=adress<<': '

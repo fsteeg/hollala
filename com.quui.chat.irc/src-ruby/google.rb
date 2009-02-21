@@ -16,15 +16,13 @@ def doGoogle(incoming)
     all=''
     res.scan regex do |url|
       all << "#" << CGI.unescapeHTML(url.join.strip.gsub(/<([^>]+)>/,""))
-        #all<<" " <<url.join
         url.join.scan /"([^"]+)"/m do |link|
                 all << ": " << link.join
         end
     end
   end
-  p "ALLLLLLLLLLLLLLLLL: " << all
+  p "All in doGoogle: " << all
   if(all[0..5]=="#Add a")
-  p "HUHUHUHUHUHUHUHUHUHUHUHUHUHUHHUUHUHUH"
     all << " http://www.urbandictionary.com/insert.php?word=#{text}"
   end
   return [all,nil]
