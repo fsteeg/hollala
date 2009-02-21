@@ -3,15 +3,10 @@
 	<classpathentry kind="src" path="src-java"/>
 	<classpathentry kind="src" path="src-java-tests"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry exported="true" kind="lib" path="lib/jdom.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/commons-lang-2.1/commons-lang-2.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/junit4.0/junit-4.0.jar">
-		<attributes>
-			<attribute value="file:/Users/fsteeg/Documents/eclipsestuff/workspaces/quui/com.quui.chat.core/lib/junit4.0/javadoc/" name="javadoc_location"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry exported="true" sourcepath="lib/log4j/src" kind="lib" path="lib/log4j/log4j-1.2.13.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/jwnl/jwnl13rc3/jwnl.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/jwnl/jwnl13rc3/commons-logging.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang-2.1.jar"/>
+	<classpathentry kind="lib" path="lib/junit-4.0.jar"/>
+	<classpathentry kind="lib" path="lib/jwnl.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.13.jar"/>
+	<classpathentry kind="lib" path="lib/jdom.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
