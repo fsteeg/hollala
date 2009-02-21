@@ -79,7 +79,7 @@
 	</target>
 
 	<!-- Deploy our jar and the libraries -->
-	<target name="deploy" depends="jar">
+	<target name="deploy" depends="test, jar">
 		<copy todir="${deploy.dir}">
 			<!-- deploy our jars -->
 			<fileset dir="${build.dist.dir}" casesensitive="yes">

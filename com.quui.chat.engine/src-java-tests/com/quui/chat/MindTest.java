@@ -18,6 +18,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+import junit.framework.Assert;
 import junit.framework.TestCase;
 
 /**
@@ -29,7 +30,7 @@ public class MindTest extends TestCase {
     private static final String[] questions = new String[] { "hi", "ok fine",
             "jackie", "how are things", "how are you", "wie geht's?",
             "was geht?", "hallo mein lieber", "do you like opera?",
-            "i like turtles", "who is god?" };
+            "i like turtles", "who is god?", "na alles klar?" };
     private String wn;
     private String log;
 
@@ -73,8 +74,10 @@ public class MindTest extends TestCase {
         System.out
                 .println("----------------------------------------------------------------------------------------------------");
         for (String string : strings) {
-            System.out.println(String.format("'%s' --> '%s'", string, t
-                    .process(string, true)));
+            String answer = t.process(string, true);
+            Assert.assertNotNull("Answer is null", answer);
+            Assert.assertTrue("Answer is empty", answer.trim().length() > 0);
+            System.out.println(String.format("'%s' --> '%s'", string, answer));
         }
     }
 

@@ -173,7 +173,13 @@ public class Topic implements Serializable, Comparable<Topic> {
      */
     @Override
     public boolean equals(Object obj) {
-        return obj instanceof Topic && ((Topic) obj).compareTo(this) == 0;
+        /*
+         * We would like to be consistent with compareTo, but doing that breaks
+         * something (run the tests with the below implementation to see it)
+         */
+        // return obj instanceof Topic && ((Topic) obj).compareTo(this) == 0;
+        /* So for now: */
+        return super.equals(obj);
     }
 
     /**

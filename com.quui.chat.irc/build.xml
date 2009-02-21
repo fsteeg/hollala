@@ -25,6 +25,7 @@
 	<property name="main.class" value="com.quui.chat.ui.RunBots" />
 	<property name="config.dir" location="config" />
 	<property name="ruby.dir" location="src-ruby" />
+	<property name="release.zip" location="hollala.zip" />
 
 	<!-- Java version config: -->
 	<property name="ant.java.version" value="1.5" />
@@ -114,7 +115,7 @@
 	</target>
 
 	<!-- Deploy our jar and the libraries -->
-	<target name="deploy" depends="jar">
+	<target name="deploy" depends="test, jar">
 		<copy todir="${deploy.dir}">
 			<!-- deploy our jars -->
 			<fileset dir="${build.dist.dir}" casesensitive="yes">
@@ -141,7 +142,7 @@
 		</copy>
 	</target>
 
-	<!-- Deploy our jar and the libraries -->
+	<!-- Deploy the distribution as a zip -->
 	<target name="zip" depends="deploy">
 		<zip destfile="${build.dir}/hollala-${time}.zip">
 			<fileset dir="${build.dist.dir}" casesensitive="yes">
@@ -149,6 +150,11 @@
 			</fileset>
 		</zip>
 	</target>
+	
+	<!-- Release the distributionzip -->
+	    <target name="release" depends="zip">
+	       <copy file="${build.dir}/hollala-${time}.zip" tofile="${release.zip}"></copy>
+	    </target>
 
 	<!-- Run the tests -->
 	<target name="test" depends="compile-tests">
