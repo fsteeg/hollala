@@ -9,7 +9,8 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses( { LeoTest.class, PPTest.class, RubyCallerTest.class,
-        TranslateTest.class, WordGameScoresTest.class, WordGameTest.class })
+        TranslateTest.class, WordGameScoresTest.class, WordGameTest.class,
+        ScriptRunner.class })
 public class IrcSuite {
 
 }
