@@ -1,3 +1,5 @@
+# Needs to be run with JRuby
+
 require 'src-ruby/misc'
 require 'test/unit'
 

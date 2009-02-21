@@ -3,7 +3,7 @@
 	<classpathentry excluding="Leo.java|WebsiteLookup.java" kind="src" path="src-java"/>
 	<classpathentry kind="src" path="src-java-tests"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="lib/jruby.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/com.quui.chat.engine"/>
+	<classpathentry kind="lib" path="lib/jruby.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

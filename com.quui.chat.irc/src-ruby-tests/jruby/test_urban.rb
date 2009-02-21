@@ -1,3 +1,5 @@
+# Needs to be run with JRuby
+
 require 'src-ruby/urban'
 require 'test/unit'
 
