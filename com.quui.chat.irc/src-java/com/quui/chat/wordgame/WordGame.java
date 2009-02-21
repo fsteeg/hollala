@@ -9,6 +9,7 @@
  */
 package com.quui.chat.wordgame;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -272,15 +273,20 @@ public class WordGame {
             toPick = POS.VERB;
             break;
         }
+        try {
+            new WNLookup().init("config/file_properties.xml");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         IndexWord word = WNLookup.getDict().getRandomIndexWord(toPick);
         // normally, don't use complex words
         boolean condition = word.getLemma().contains(" ");
         // for hard games, use only complex words
         // if(hard)
         // condition = !condition;
-        while (word.getLemma().length() < 4 || condition)
-            word = WNLookup.getDict().getRandomIndexWord(toPick);
-        return word;
+//        while (word.getLemma().length() < 4 || condition)
+//            word = WNLookup.getDict().getRandomIndexWord(toPick);
+        return WNLookup.getDict().getRandomIndexWord(toPick);
     }
 
     /**
