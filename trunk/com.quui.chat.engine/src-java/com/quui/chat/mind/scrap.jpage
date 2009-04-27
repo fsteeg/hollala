@@ -1,1 +1,0 @@
-System.out.println("hi  there !".replaceAll("\\s+", " ").replaceAll("\\s(\\W)", "$1"));
