@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="Leo.java|WebsiteLookup.java" kind="src" path="src-java"/>
+	<classpathentry kind="src" path="src-java-tests"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/com.quui.chat.engine"/>
+	<classpathentry kind="lib" path="lib/jruby.jar"/>
+	<classpathentry kind="lib" path="lib/jwnl.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.13.jar"/>
+	<classpathentry kind="lib" path="lib/junit-4.0.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
