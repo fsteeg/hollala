@@ -9,6 +9,8 @@
  */
 package com.quui.chat.ui;
 
+import com.quui.chat.twitter.TwitterChecker;
+
 /**
  * Runs Hollaka Hollala :D
  * 
@@ -22,15 +24,9 @@ public class RunBots {
      */
     public static void main(final String[] args) {
         boolean b = args != null && args.length == 2;
-//        new Hollala(b ? args[0] : "config/hollala.properties");
-//        //TODO: does this solve the problem on logging in on the other network?
-//        //if not, please remove it
-//        try {
-//            Thread.sleep(10000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-        //end section to be removed if it didn't help
+        // quick and dirty way to start the twitter checker in the same run
+        // TODO should use the property file given below, which could contain a flag for starting the twitter checker
+        new Thread(new Runnable() { public void run() { new TwitterChecker(); } }).start();
         new Hollaka(b ? args[1] : "config/hollaka.properties");
     }
 

@@ -2,3 +2,6 @@
 bin/
 logs/
 com.quui.fsteeg.*
+com.quui.chat.engine/config/topics-hollala.xml
+com.quui.chat.irc/config/topics-evitagre-invis.xml
+com.quui.chat.engine/log/
